@@ -25,7 +25,7 @@
 // ================================================================
 
 
-const RECIPIENT_EMAIL = '[CLIENT TO PROVIDE]';
+const RECIPIENT_EMAIL = 'sales@ukremoval.co.uk';
 const CC_EMAIL = '';
 const SHEET_ID = '1ObT6a6Qt7oQGn3mmjhsxB6HcZhtIhXKMV_7lgN4hliY'; // ← replace this
 const BLOG_PASSWORD = 'rapidmove2026';        // ← same as admin panel password
