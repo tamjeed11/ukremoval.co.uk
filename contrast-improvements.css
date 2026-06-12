@@ -1,0 +1,182 @@
+/* ═══════════════════════════════════════════════════════════════
+   TEXT CONTRAST & VISIBILITY IMPROVEMENTS
+   Comprehensive fixes for text readability across all backgrounds
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── HERO SECTIONS ── */
+/* Stronger overlays for better text contrast */
+.hero::before,
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.80) 0%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure content is above overlay */
+.hero-content,
+.page-hero-content {
+  position: relative;
+  z-index: 3 !important;
+}
+
+/* Text shadows for maximum readability */
+.hero-title,
+.page-hero h1,
+.hero h1 {
+  text-shadow: 
+    0 2px 12px rgba(255, 255, 255, 0.95),
+    0 1px 4px rgba(0, 0, 0, 0.12) !important;
+  color: var(--text) !important;
+}
+
+.hero-text,
+.hero-subtitle,
+.page-hero p {
+  text-shadow: 
+    0 1px 6px rgba(255, 255, 255, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.10) !important;
+  color: var(--text) !important;
+  font-weight: 500;
+}
+
+/* Hero eyebrow/label */
+.hero-eyebrow,
+.section-label {
+  background: rgba(0, 168, 138, 0.15) !important;
+  border: 1px solid rgba(0, 168, 138, 0.35) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── SERVICE CARDS & IMAGE SECTIONS ── */
+/* Ensure images render properly */
+.svc-image,
+.card-icon,
+.region-visual,
+.split-image,
+.story-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.svc-image img,
+.card-icon img,
+.region-visual img,
+.split-image img,
+.story-image img {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Add subtle overlay to images with text */
+.split-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure badges on images are readable */
+.split-badge {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.97) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ── REGION/AREA CARDS ── */
+.region-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── BUTTONS ON IMAGES ── */
+/* Ensure buttons are always visible */
+.hero-buttons .btn-primary,
+.hero-buttons .btn-ghost {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ── MOBILE IMPROVEMENTS ── */
+@media (max-width: 768px) {
+  /* Stronger overlays on mobile for better readability */
+  .hero::before,
+  .page-hero::before {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.75) 50%,
+      rgba(255, 255, 255, 0.80) 100%
+    );
+  }
+  
+  /* Increase text shadow on mobile */
+  .hero-title,
+  .page-hero h1 {
+    text-shadow: 
+      0 3px 16px rgba(255, 255, 255, 0.98),
+      0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .hero-text,
+  .page-hero p {
+    text-shadow: 
+      0 2px 8px rgba(255, 255, 255, 0.98),
+      0 1px 4px rgba(0, 0, 0, 0.12) !important;
+    font-weight: 600;
+  }
+}
+
+/* ── ACCESSIBILITY ── */
+/* Ensure minimum contrast ratios (WCAG AA) */
+.hero-trust-item,
+.breadcrumb,
+.section-subtitle {
+  color: var(--text) !important;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
+}
+
+/* ── PRINT STYLES ── */
+@media print {
+  .hero::before,
+  .page-hero::before,
+  .split-image::before,
+  .region-visual::after {
+    display: none;
+  }
+}

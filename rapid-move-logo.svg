@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" width="520" height="140">
+  <defs>
+    <!-- Gradient for truck body -->
+    <linearGradient id="truckGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2a4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1e38;stop-opacity:1" />
+    </linearGradient>
+    <!-- Accent gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00D4AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00A88A;stop-opacity:1" />
+    </linearGradient>
+    <!-- Gold gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD166;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB547;stop-opacity:1" />
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00A88A" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background (transparent) -->
+
+  <!-- ══ TRUCK ICON (left) ══ -->
+  <!-- Truck body/cargo area -->
+  <rect x="8" y="28" width="68" height="52" rx="5" ry="5" fill="url(#truckGrad)" filter="url(#shadow)"/>
+  <!-- Cab -->
+  <rect x="70" y="44" width="40" height="36" rx="5" ry="5" fill="url(#truckGrad)"/>
+  <!-- Cab windshield -->
+  <rect x="74" y="48" width="30" height="18" rx="3" ry="3" fill="#1a9ed4" opacity="0.85"/>
+  <!-- Accent stripe on truck body -->
+  <rect x="8" y="71" width="68" height="6" rx="0" fill="url(#accentGrad)" opacity="0.9"/>
+  <!-- Gold house icon inside truck body -->
+  <!-- House base -->
+  <rect x="28" y="48" width="28" height="22" rx="2" fill="url(#goldGrad)"/>
+  <!-- House roof -->
+  <polygon points="26,50 42,36 58,50" fill="#FFB547" opacity="0.95"/>
+  <!-- House door -->
+  <rect x="38" y="56" width="8" height="14" rx="1" fill="#0f1e38" opacity="0.8"/>
+  <!-- House window -->
+  <rect x="29" y="54" width="7" height="6" rx="1" fill="#fff" opacity="0.9"/>
+
+  <!-- Speed lines (motion) -->
+  <line x1="2" y1="54" x2="14" y2="54" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="2" y1="62" x2="10" y2="62" stroke="#FFB547" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="2" y1="70" x2="12" y2="70" stroke="url(#accentGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Wheels -->
+  <circle cx="30" cy="84" r="10" fill="#1a2a4a" stroke="#00A88A" stroke-width="2.5"/>
+  <circle cx="30" cy="84" r="4.5" fill="url(#accentGrad)"/>
+  <circle cx="82" cy="84" r="10" fill="#1a2a4a" stroke="#00A88A" stroke-width="2.5"/>
+  <circle cx="82" cy="84" r="4.5" fill="url(#accentGrad)"/>
+
+  <!-- Undercarriage connector -->
+  <rect x="20" y="80" width="72" height="4" rx="2" fill="#0f1e38"/>
+
+  <!-- ══ TEXT SECTION (right of truck) ══ -->
+
+  <!-- Company name: RAPID MOVE -->
+  <text x="122" y="65" font-family="'Outfit', 'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="38" letter-spacing="-1" fill="#111827">RAPID</text>
+  <!-- MOVE in accent color -->
+  <text x="236" y="65" font-family="'Outfit', 'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="38" letter-spacing="-1" fill="url(#accentGrad)">MOVE</text>
+
+  <!-- REMOVALS in smaller weight below, dark -->
+  <text x="122" y="86" font-family="'Inter', 'Arial', sans-serif" font-weight="600" font-size="14" letter-spacing="5" fill="#4B5563">REMOVALS</text>
+
+  <!-- Accent underline bar -->
+  <rect x="122" y="92" width="218" height="3" rx="1.5" fill="url(#accentGrad)"/>
+
+  <!-- Gold dot accent -->
+  <circle cx="348" cy="93.5" r="4" fill="url(#goldGrad)"/>
+
+  <!-- Tagline -->
+  <text x="122" y="114" font-family="'Inter', 'Georgia', serif" font-weight="400" font-size="13" fill="#6B7280" font-style="italic" letter-spacing="0.3">Stress-free moving across the UK</text>
+
+  <!-- Ltd badge (subtle) -->
+  <text x="350" y="86" font-family="'Inter', 'Arial', sans-serif" font-weight="500" font-size="10" fill="#9CA3AF" letter-spacing="1">LTD</text>
+
+</svg>

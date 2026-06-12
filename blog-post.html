@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="UK Removal & Logistics Ltd">
+  <title id="page-title">Blog – UK Removal & Logistics</title>
+  <link rel="canonical" id="page-canonical" href="https://www.ukremoval.co.uk/blog">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <style>
+    .post-hero {
+      padding: 140px 0 60px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .post-breadcrumb {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .post-breadcrumb a { color: var(--accent); }
+    .post-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .post-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+    .post-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .post-meta-bar span { display: flex; align-items: center; gap: 6px; }
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 52px;
+      align-items: start;
+      margin-top: 52px;
+    }
+    .post-featured-img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      margin-bottom: 40px;
+      max-height: 480px;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+    .post-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text);
+      margin: 40px 0 16px;
+      letter-spacing: -0.5px;
+      scroll-margin-top: 96px; /* clears the fixed navbar */
+    }
+    .post-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 12px;
+      scroll-margin-top: 96px;
+    }
+    .post-content p { margin-bottom: 20px; }
+    .post-content ul, .post-content ol {
+      margin: 0 0 20px 24px;
+    }
+    .post-content li { margin-bottom: 8px; }
+    .post-content strong { color: var(--text); font-weight: 700; }
+    .post-content blockquote {
+      border-left: 4px solid var(--accent);
+      padding: 16px 24px;
+      margin: 28px 0;
+      background: var(--accent-glow);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-style: italic;
+    }
+    .post-content a { color: var(--accent); font-weight: 600; }
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .post-tag {
+      padding: 6px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    /* Sidebar */
+    .post-sidebar {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+    .sidebar-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li {
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 0;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s, padding-left 0.2s;
+      line-height: 1.4;
+    }
+    .toc-list a::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .toc-list a:hover {
+      color: var(--accent);
+      padding-left: 4px;
+    }
+    .toc-list a:hover::before {
+      background: var(--accent);
+    }
+    .toc-list a.toc-active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .toc-list a.toc-active::before {
+      background: var(--accent);
+    }
+    .cta-sidebar {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      color: white;
+    }
+    .cta-sidebar h4 { color: white; }
+    .cta-sidebar p { font-size: 13.5px; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+    .related-post {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+    }
+    .related-post:last-child { border-bottom: none; }
+    .related-post:hover .related-title { color: var(--accent); }
+    .related-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-muted);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .related-date { font-size: 11.5px; color: var(--text-muted); margin-top: 3px; }
+    .not-found {
+      text-align: center;
+      padding: 100px 0;
+      color: var(--text-muted);
+    }
+    @media (max-width: 1024px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .post-sidebar { position: static; }
+    }
+    @media (max-width: 640px) {
+      .post-hero { padding: 120px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="nav-brand"><img src="./img/main%20logo.webp" alt="UK Removal &amp; Logistics"></a>
+    <div class="nav-menu">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/testimonials">Reviews</a>
+      <a href="/areas">Areas</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="/faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+442037699990" class="nav-phone"><i class="fas fa-phone"></i> 020 3769 9990</a>
+      <a href="/quote" class="btn-primary">Get Free Quote</a>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/about">About</a>
+    <a href="/testimonials">Reviews</a>
+    <a href="/areas">Areas</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a href="/faq">FAQ</a>
+    <div class="mobile-nav-footer"><a href="/quote" class="btn-primary btn-lg btn-shake" style="width:100%;justify-content:center;">Get Free Quote</a></div>
+  </div>
+
+  <div id="post-container"></div>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-title">Ready to Move?<br><span>Get Your Free Quote</span></h2>
+          <p class="cta-text">Join 500+ happy customers. Response within minutes.</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="/quote" class="btn-primary btn-lg"><i class="fas fa-file-invoice"></i> Get Free Quote</a>
+          <a href="tel:+442037699990" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> 020 3769 9990</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><img src="./img/footer%20logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
+          <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> 020 3769 9990</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7754 844481</div>
+            <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
+            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/ukremoval/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61578389480824" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/uk_removal" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/ukremoval/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/home-removals">Home Removals</a>
+          <a href="/office-removals">Office Relocations</a>
+          <a href="/storage-solutions">Storage Solutions</a>
+          <a href="/packing-services">Packing Services</a>
+          <a href="/piano-removals">Piano Removals</a>
+          <a href="/student-moves">Student Moves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/testimonials">Reviews</a>
+          <a href="/areas">Areas Covered</a>
+          <a href="/blog">Blog</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+          <a href="/quote">Get Quote</a>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">Open 24/7 &nbsp;|&nbsp; Company No: 15954477<br>© 2026 UK Removal & Logistics Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+  <script src="shared.js" defer></script>
+  <script src="blog-data.js"></script>
+  <script>
+    function getSlug() {
+      return new URLSearchParams(window.location.search).get('slug');
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // ── Slug helper: turn heading text into a URL-safe id ──
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')   // strip special chars
+        .trim()
+        .replace(/\s+/g, '-')       // spaces → hyphens
+        .replace(/-+/g, '-');       // collapse multiple hyphens
+    }
+
+    // ── Inject real IDs into the HTML string before rendering ──
+    // Returns { html, headings: [{id, text}] }
+    function injectHeadingIds(html) {
+      const headings = [];
+      const usedIds = {};
+
+      const processed = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, inner) => {
+        // Strip any existing HTML tags inside the heading to get plain text
+        const text = inner.replace(/<[^>]+>/g, '').trim();
+        let id = slugify(text);
+
+        // Ensure uniqueness
+        if (usedIds[id] !== undefined) {
+          usedIds[id]++;
+          id = id + '-' + usedIds[id];
+        } else {
+          usedIds[id] = 0;
+        }
+
+        headings.push({ id, text });
+        return `<h2${attrs} id="${id}">${inner}</h2>`;
+      });
+
+      return { html: processed, headings };
+    }
+
+    // ── Build TOC HTML from headings array ──
+    function buildTOC(headings) {
+      if (headings.length < 2) return '';
+      const items = headings.map(({ id, text }) =>
+        `<li><a href="#${id}" class="toc-link" data-target="${id}">${text}</a></li>`
+      ).join('');
+      return `<ul class="toc-list">${items}</ul>`;
+    }
+
+    // ── Smooth scroll handler for TOC links ──
+    function initTOC() {
+      document.querySelectorAll('.toc-link').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('data-target');
+          const target = document.getElementById(targetId);
+          if (!target) return;
+
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Update active state immediately on click
+          document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('toc-active'));
+          this.classList.add('toc-active');
+        });
+      });
+    }
+
+    // ── Highlight active TOC item on scroll via IntersectionObserver ──
+    function initScrollSpy(headings) {
+      if (!headings.length || !('IntersectionObserver' in window)) return;
+
+      const links = {};
+      document.querySelectorAll('.toc-link').forEach(l => {
+        links[l.getAttribute('data-target')] = l;
+      });
+
+      let lastActive = null;
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (lastActive) lastActive.classList.remove('toc-active');
+            if (links[id]) {
+              links[id].classList.add('toc-active');
+              lastActive = links[id];
+            }
+          }
+        });
+      }, {
+        rootMargin: '-96px 0px -60% 0px', // account for fixed navbar
+        threshold: 0
+      });
+
+      headings.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+
+    // ── Main render function ──
+    function renderPost(post) {
+      document.getElementById('page-title').textContent = post.title + ' – UK Removal & Logistics';
+      document.getElementById('page-canonical').href = 'https://www.ukremoval.co.uk/blog-post.html?slug=' + post.slug;
+      document.title = post.title + ' – UK Removal & Logistics';
+
+      const posts = window.BLOG_POSTS || [];
+      const related = posts.filter(p => p.slug !== post.slug && p.category === post.category).slice(0, 3);
+
+      // Inject IDs into content HTML and extract heading list
+      const { html: contentHtml, headings } = injectHeadingIds(post.content || '');
+      const tocHtml = buildTOC(headings);
+
+      const container = document.getElementById('post-container');
+      container.innerHTML = `
+        <section class="post-hero">
+          <div class="container">
+            <div class="post-breadcrumb">
+              <a href="/blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+              <span>/</span>
+              <span>${post.category}</span>
+            </div>
+            <div class="post-category-badge"><i class="fas fa-tag"></i> ${post.category}</div>
+            <h1 class="post-title">${post.title}</h1>
+            <div class="post-meta-bar">
+              <span><i class="fas fa-calendar"></i> ${formatDate(post.date)}</span>
+              <span><i class="fas fa-clock"></i> ${post.readTime || 5} min read</span>
+              ${post.author ? `<span><i class="fas fa-user"></i> ${post.author}</span>` : ''}
+            </div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container">
+            <div class="post-layout">
+              <article>
+                ${post.image ? `<img src="${post.image}" alt="${post.title}" class="post-featured-img" loading="lazy">` : ''}
+                <div class="post-content">${contentHtml}</div>
+                ${post.tags && post.tags.length ? `
+                  <div class="post-tags">
+                    ${post.tags.map(t => `<span class="post-tag">${t}</span>`).join('')}
+                  </div>` : ''}
+              </article>
+              <aside class="post-sidebar">
+                ${tocHtml ? `
+                  <div class="sidebar-card">
+                    <h4><i class="fas fa-list" style="color:var(--accent);margin-right:8px;"></i>In This Article</h4>
+                    ${tocHtml}
+                  </div>` : ''}
+                <div class="sidebar-card cta-sidebar">
+                  <h4>Need a Removal Quote?</h4>
+                  <p>Get a free, fixed-price quote in under 2 minutes. No hidden fees.</p>
+                  <a href="/quote" class="btn-primary" style="width:100%;justify-content:center;background:white;color:#050508;">Get Free Quote</a>
+                  <a href="tel:+442037699990" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;">
+                    <i class="fas fa-phone"></i> 020 3769 9990
+                  </a>
+                </div>
+                ${related.length ? `
+                  <div class="sidebar-card">
+                    <h4><i class="fas fa-newspaper" style="color:var(--accent);margin-right:8px;"></i>Related Posts</h4>
+                    ${related.map(r => `
+                      <a href="/blog-post.html?slug=${r.slug}" class="related-post">
+                        <div class="related-thumb">
+                          ${r.image
+                            ? `<img src="${r.image}" alt="${r.title}" loading="lazy">`
+                            : `<div style="width:100%;height:100%;background:var(--accent-glow);display:flex;align-items:center;justify-content:center;"><i class="fas fa-newspaper" style="color:var(--accent);"></i></div>`}
+                        </div>
+                        <div>
+                          <div class="related-title">${r.title}</div>
+                          <div class="related-date">${formatDate(r.date)}</div>
+                        </div>
+                      </a>`).join('')}
+                  </div>` : ''}
+              </aside>
+            </div>
+          </div>
+        </section>`;
+
+      // Wire up TOC after DOM is updated
+      initTOC();
+      initScrollSpy(headings);
+    }
+
+    window.renderPost = renderPost;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const slug = getSlug();
+      const posts = window.BLOG_POSTS || [];
+      const post = posts.find(p => p.slug === slug);
+      if (post) {
+        renderPost(post);
+      } else {
+        document.getElementById('post-container').innerHTML = `
+          <div class="container not-found">
+            <i class="fas fa-search" style="font-size:48px;color:var(--accent);margin-bottom:16px;display:block;"></i>
+            <h2>Post Not Found</h2>
+            <p style="margin:12px 0 24px;">This article doesn't exist or has been removed.</p>
+            <a href="/blog" class="btn-primary">Back to Blog</a>
+          </div>`;
+      }
+    });
+  </script>
+</body>
+</html>

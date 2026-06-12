@@ -1,0 +1,640 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Blog Admin – UK Removal & Logistics</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --accent: #00A88A;
+      --accent-light: #4DD7C8;
+      --accent-glow: rgba(0,168,138,0.12);
+      --accent-border: rgba(0,168,138,0.25);
+      --bg: #F2F5FB;
+      --bg-card: #FFFFFF;
+      --border: rgba(15,23,42,0.08);
+      --text: #111827;
+      --text-secondary: #4B5563;
+      --text-muted: #6B7280;
+      --danger: #EF4444;
+      --danger-glow: rgba(239,68,68,0.1);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --radius-full: 9999px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+
+    /* ── LOGIN ── */
+    .login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#F2F5FB,#E8F4F1); }
+    .login-box { background:var(--bg-card); border:1px solid var(--border); border-radius:24px; padding:48px 40px; width:100%; max-width:420px; box-shadow:var(--shadow); text-align:center; }
+    .login-logo { font-family:'Outfit',sans-serif; font-size:28px; font-weight:900; color:var(--text); margin-bottom:6px; }
+    .login-logo span { color:var(--accent); }
+    .login-subtitle { font-size:13.5px; color:var(--text-muted); margin-bottom:24px; }
+    .login-box input[type="password"] { width:100%; padding:14px 18px; border:1.5px solid var(--border); border-radius:var(--radius); font-size:15px; font-family:inherit; outline:none; margin-bottom:14px; transition:border-color 0.25s; background:var(--bg); }
+    .login-box input:focus { border-color:var(--accent); }
+    .login-error { color:var(--danger); font-size:13px; margin-bottom:12px; display:none; align-items:center; gap:6px; justify-content:center; }
+
+    /* ── SCRIPT URL SETUP ── */
+    .setup-banner { background:#FFF8E7; border:1.5px solid #FFB547; border-radius:var(--radius); padding:18px 22px; margin-bottom:24px; font-size:13.5px; color:#92400E; line-height:1.7; text-align:left; }
+    .setup-banner strong { display:block; font-size:14px; margin-bottom:6px; }
+    .setup-banner input { width:100%; padding:10px 14px; border:1.5px solid #FFB547; border-radius:var(--radius-sm); font-size:13px; font-family:monospace; outline:none; background:#FFFBF0; margin-top:10px; }
+    .setup-banner input:focus { border-color:var(--accent); }
+
+    /* ── BUTTONS ── */
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:11px 24px; border-radius:var(--radius-full); font-size:14px; font-weight:700; cursor:pointer; border:none; transition:all 0.3s; font-family:inherit; }
+    .btn-primary { background:var(--accent); color:#050508; }
+    .btn-primary:hover { background:var(--accent-light); transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,168,138,0.2); }
+    .btn-primary:disabled { opacity:0.55; cursor:not-allowed; transform:none; }
+    .btn-danger { background:var(--danger-glow); color:var(--danger); border:1px solid rgba(239,68,68,0.2); }
+    .btn-danger:hover { background:var(--danger); color:white; }
+    .btn-ghost { background:transparent; color:var(--text-secondary); border:1px solid var(--border); }
+    .btn-ghost:hover { border-color:var(--accent-border); color:var(--accent); }
+    .btn-sm { padding:7px 16px; font-size:12.5px; }
+    .btn-full { width:100%; justify-content:center; }
+
+    /* ── ADMIN LAYOUT ── */
+    .admin-wrap { display:none; min-height:100vh; }
+    .admin-header { background:var(--bg-card); border-bottom:1px solid var(--border); padding:0 32px; height:64px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; box-shadow:0 1px 12px rgba(0,0,0,0.05); }
+    .admin-brand { font-family:'Outfit',sans-serif; font-weight:800; font-size:18px; }
+    .admin-brand span { color:var(--accent); }
+    .admin-main { max-width:1100px; margin:0 auto; padding:40px 24px; }
+
+    /* ── CONNECTION STATUS ── */
+    .conn-status { display:inline-flex; align-items:center; gap:7px; padding:6px 14px; border-radius:var(--radius-full); font-size:12.5px; font-weight:600; border:1px solid; }
+    .conn-ok   { background:rgba(5,150,105,0.1); color:#059669; border-color:rgba(5,150,105,0.25); }
+    .conn-warn { background:#FFF8E7; color:#92400E; border-color:#FFB547; }
+    .conn-err  { background:var(--danger-glow); color:var(--danger); border-color:rgba(239,68,68,0.25); }
+
+    /* ── TABS ── */
+    .tab-bar { display:flex; gap:8px; margin-bottom:32px; border-bottom:1px solid var(--border); }
+    .tab-btn { padding:10px 20px 14px; font-size:14px; font-weight:600; cursor:pointer; border:none; background:transparent; color:var(--text-muted); border-bottom:2px solid transparent; margin-bottom:-1px; transition:all 0.25s; font-family:inherit; }
+    .tab-btn.active { color:var(--accent); border-bottom-color:var(--accent); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+
+    /* ── POSTS LIST ── */
+    .posts-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .posts-header h2 { font-family:'Outfit',sans-serif; font-size:22px; font-weight:800; }
+    .posts-table { width:100%; border-collapse:collapse; }
+    .posts-table th { text-align:left; padding:12px 16px; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:700; border-bottom:2px solid var(--border); }
+    .posts-table td { padding:14px 16px; border-bottom:1px solid var(--border); vertical-align:middle; }
+    .posts-table tr:last-child td { border-bottom:none; }
+    .posts-table tr:hover td { background:var(--bg); }
+    .post-row-title { font-weight:600; color:var(--text); font-size:14px; }
+    .post-row-excerpt { font-size:12.5px; color:var(--text-muted); margin-top:3px; max-width:320px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .badge { padding:4px 10px; border-radius:var(--radius-full); font-size:11px; font-weight:700; }
+    .badge-cat { background:var(--accent-glow); color:var(--accent); border:1px solid var(--accent-border); }
+    .post-actions { display:flex; gap:8px; }
+    .empty-state { text-align:center; padding:80px 0; color:var(--text-muted); }
+    .empty-state i { font-size:48px; color:var(--accent); margin-bottom:16px; display:block; }
+
+    /* ── FORM ── */
+    .form-section { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+    .form-section h2 { font-family:'Outfit',sans-serif; font-size:20px; font-weight:800; margin-bottom:24px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .form-group { display:flex; flex-direction:column; gap:7px; }
+    .form-group.full { grid-column:1/-1; }
+    .form-group label { font-size:11.5px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; }
+    .form-group input, .form-group select, .form-group textarea { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-size:14px; font-family:inherit; color:var(--text); background:var(--bg); outline:none; transition:border-color 0.25s; width:100%; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--accent); }
+    .form-group textarea { min-height:120px; resize:vertical; line-height:1.6; }
+    #content-editor { min-height:360px; font-family:monospace; font-size:13.5px; }
+    .form-actions { display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
+    .form-hint { font-size:11.5px; color:var(--text-muted); }
+
+    /* ── SAVE STATUS ── */
+    .save-status { font-size:13px; color:var(--text-muted); display:flex; align-items:center; gap:6px; }
+    .save-status.saving { color:#F59E0B; }
+    .save-status.saved  { color:#059669; }
+    .save-status.error  { color:var(--danger); }
+
+    /* ── PREVIEW ── */
+    .preview-pane { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; margin-top:24px; display:none; }
+    .preview-pane h3 { font-family:'Outfit',sans-serif; font-size:16px; font-weight:700; margin-bottom:16px; color:var(--text-muted); }
+    .preview-content { font-size:15px; line-height:1.85; color:var(--text-secondary); }
+    .preview-content h2 { font-family:'Outfit',sans-serif; font-size:22px; font-weight:800; color:var(--text); margin:28px 0 12px; }
+    .preview-content h3 { font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:var(--text); margin:20px 0 10px; }
+    .preview-content ul, .preview-content ol { margin:0 0 16px 24px; }
+    .preview-content li { margin-bottom:6px; }
+    .preview-content blockquote { border-left:4px solid var(--accent); padding:14px 20px; margin:20px 0; background:var(--accent-glow); border-radius:0 10px 10px 0; font-style:italic; }
+    .preview-content a { color:var(--accent); font-weight:600; }
+    .preview-content strong { color:var(--text); font-weight:700; }
+
+    /* ── SETTINGS ── */
+    .settings-section { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:32px; }
+    .settings-section h2 { font-family:'Outfit',sans-serif; font-size:20px; font-weight:800; margin-bottom:20px; }
+    .settings-row { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+    .settings-row label { font-size:11.5px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; }
+    .settings-row input { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-size:14px; font-family:monospace; background:var(--bg); color:var(--text); outline:none; }
+    .settings-row input:focus { border-color:var(--accent); }
+    .settings-row .hint { font-size:12px; color:var(--text-muted); line-height:1.6; }
+
+    /* ── TOAST ── */
+    .toast { position:fixed; bottom:24px; right:24px; padding:14px 24px; border-radius:var(--radius); font-weight:600; font-size:14px; display:none; align-items:center; gap:10px; box-shadow:var(--shadow); z-index:9999; }
+    .toast-ok  { background:#059669; color:white; }
+    .toast-err { background:var(--danger); color:white; }
+
+    /* ── LOADING SPINNER ── */
+    .spinner { width:18px; height:18px; border:2px solid rgba(0,168,138,0.3); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; display:inline-block; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    @media(max-width:768px) { .form-grid { grid-template-columns:1fr; } .admin-main { padding:24px 16px; } }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ── -->
+<div class="login-wrap" id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">UK<span>Removal</span> Admin</div>
+    <p class="login-subtitle">Blog Management Panel</p>
+    <input type="password" id="password-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()">
+    <p class="login-error" id="login-error"><i class="fas fa-exclamation-circle"></i> Incorrect password</p>
+    <button class="btn btn-primary btn-full" onclick="doLogin()"><i class="fas fa-lock-open"></i> Login</button>
+  </div>
+</div>
+
+<!-- ── ADMIN PANEL ── -->
+<div class="admin-wrap" id="admin-wrap">
+  <header class="admin-header">
+    <div class="admin-brand">UK<span>Removal</span> <span style="color:var(--text-muted);font-weight:500;font-size:14px;">Blog Admin</span></div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span id="conn-indicator" class="conn-status conn-warn"><i class="fas fa-circle"></i> Not connected</span>
+      <a href="/blog" target="_blank" class="btn btn-ghost btn-sm"><i class="fas fa-external-link-alt"></i> View Blog</a>
+      <button class="btn btn-ghost btn-sm" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showTab('posts')"><i class="fas fa-list"></i> All Posts</button>
+      <button class="tab-btn" onclick="showTab('new');clearForm()"><i class="fas fa-plus"></i> New Post</button>
+      <button class="tab-btn" onclick="showTab('settings')"><i class="fas fa-cog"></i> Settings</button>
+    </div>
+
+    <!-- ── POSTS LIST ── -->
+    <div class="tab-panel active" id="tab-posts">
+      <div class="posts-header">
+        <h2>Blog Posts (<span id="post-count">0</span>)</h2>
+        <button class="btn btn-primary" onclick="showTab('new');clearForm()"><i class="fas fa-plus"></i> New Post</button>
+      </div>
+      <div id="posts-list">
+        <div class="empty-state"><div class="spinner"></div><p style="margin-top:16px;">Loading posts...</p></div>
+      </div>
+    </div>
+
+    <!-- ── NEW / EDIT POST ── -->
+    <div class="tab-panel" id="tab-new">
+      <div class="form-section">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+          <h2 id="form-heading"><i class="fas fa-pen" style="color:var(--accent);margin-right:10px;"></i>New Blog Post</h2>
+          <span class="save-status" id="save-status"></span>
+        </div>
+        <input type="hidden" id="edit-slug">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Post Title *</label>
+            <input type="text" id="f-title" placeholder="e.g. How to Pack Like a Pro" oninput="autoSlug()">
+          </div>
+          <div class="form-group">
+            <label>URL Slug *</label>
+            <input type="text" id="f-slug" placeholder="e.g. how-to-pack-like-a-pro">
+            <span class="form-hint">Auto-generated. Letters, numbers, hyphens only.</span>
+          </div>
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="f-category">
+              <option value="">Select category...</option>
+              <option>Moving Tips</option>
+              <option>Packing Guides</option>
+              <option>Office Moves</option>
+              <option>Cost Guides</option>
+              <option>Local Guides</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Publish Date *</label>
+            <input type="date" id="f-date">
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" id="f-author" placeholder="UK Removal Team">
+          </div>
+          <div class="form-group">
+            <label>Read Time (minutes)</label>
+            <input type="number" id="f-readtime" placeholder="5" min="1" max="60">
+          </div>
+          <div class="form-group full">
+            <label>Image URL (optional)</label>
+            <input type="text" id="f-image" placeholder="./img/blog/filename.jpg or https://...">
+          </div>
+          <div class="form-group full">
+            <label>Excerpt (short description ~150 chars) *</label>
+            <textarea id="f-excerpt" rows="3" placeholder="Brief description shown on blog listing page..."></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Tags (comma separated)</label>
+            <input type="text" id="f-tags" placeholder="e.g. packing, tips, boxes">
+          </div>
+          <div class="form-group full">
+            <label>Content (HTML) *</label>
+            <textarea id="content-editor" placeholder="Write content using HTML:&#10;&#10;&lt;h2&gt;Section Title&lt;/h2&gt;&#10;&lt;p&gt;Paragraph here...&lt;/p&gt;&#10;&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;&#10;&lt;blockquote&gt;Quote&lt;/blockquote&gt;&#10;&lt;strong&gt;Bold&lt;/strong&gt;&#10;&lt;a href='/quote'&gt;Get a quote&lt;/a&gt;"></textarea>
+            <span class="form-hint">Supported: &lt;h2&gt; &lt;h3&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt; &lt;strong&gt; &lt;blockquote&gt; &lt;a&gt;</span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" id="save-btn" onclick="savePost()"><i class="fas fa-cloud-upload-alt"></i> Save &amp; Publish</button>
+          <button class="btn btn-ghost" onclick="togglePreview()"><i class="fas fa-eye"></i> Preview</button>
+          <button class="btn btn-ghost" onclick="clearForm();showTab('posts')"><i class="fas fa-times"></i> Cancel</button>
+        </div>
+      </div>
+      <div class="preview-pane" id="preview-pane">
+        <h3><i class="fas fa-eye" style="color:var(--accent);margin-right:8px;"></i>Content Preview</h3>
+        <div class="preview-content" id="preview-content"></div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS ── -->
+    <div class="tab-panel" id="tab-settings">
+      <div class="settings-section">
+        <h2><i class="fas fa-cog" style="color:var(--accent);margin-right:10px;"></i>Connection Settings</h2>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:28px;line-height:1.7;">
+          Paste your Google Apps Script URL here. Once connected, all posts save directly to Google Sheets  your blog updates automatically, no files to touch.
+        </p>
+
+        <div class="settings-row">
+          <label>Google Apps Script URL</label>
+          <input type="text" id="script-url-input" placeholder="https://script.google.com/macros/s/YOUR_ID/exec">
+          <span class="hint">Deploy your Apps Script as a Web App (Execute as: Me, Who has access: Anyone) and paste the URL above.</span>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="saveScriptUrl()"><i class="fas fa-save"></i> Save URL</button>
+          <button class="btn btn-ghost" onclick="testConnection()"><i class="fas fa-plug"></i> Test Connection</button>
+        </div>
+
+        <div style="margin-top:40px;padding-top:28px;border-top:1px solid var(--border);">
+          <h3 style="font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;margin-bottom:16px;">How to set this up</h3>
+          <ol style="font-size:14px;color:var(--text-secondary);line-height:2;padding-left:20px;">
+            <li>Open <a href="https://script.google.com" target="_blank" style="color:var(--accent);">script.google.com</a> and open your existing project</li>
+            <li>Replace the file contents with the new <strong>google-apps-script.gs</strong> provided</li>
+            <li>Create a Google Sheet  name the first tab <strong>Posts</strong></li>
+            <li>Copy the Sheet ID from its URL and paste it into the script where it says <code>SHEET_ID</code></li>
+            <li>Click <strong>Deploy → New Deployment → Web App</strong></li>
+            <li>Set <em>Execute as: Me</em> and <em>Who has access: Anyone</em> → Deploy → Authorize</li>
+            <li>Copy the Web App URL and paste it above</li>
+            <li>Click <strong>Test Connection</strong>  you should see "Connected ✓"</li>
+          </ol>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">After this one-time setup, every post you save here goes live on your blog automatically.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── TOASTS ── -->
+<div class="toast toast-ok" id="toast-ok"><i class="fas fa-check-circle"></i> <span id="toast-ok-msg"></span></div>
+<div class="toast toast-err" id="toast-err"><i class="fas fa-exclamation-circle"></i> <span id="toast-err-msg"></span></div>
+
+<script>
+// ════════════════════════════════════════════════
+// CONFIG  stored in localStorage
+// ════════════════════════════════════════════════
+const ADMIN_PASSWORD = 'rapidmove2026';
+
+// Default Script URL  pre-filled so admin works out of the box.
+// Change it in the Settings tab if you redeploy.
+const DEFAULT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzob6s6knmBhVsm21IVKpUckK8nrK2tjDI4YX5koHBzMKhAtMUhpaKZAmIp5EiEufAw/exec';
+
+function getScriptUrl() {
+  // Use saved URL if the user has overridden it, otherwise fall back to default
+  return localStorage.getItem('rm_script_url') || DEFAULT_SCRIPT_URL;
+}
+function setScriptUrl(url) {
+  localStorage.setItem('rm_script_url', url);
+}
+
+// ════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════
+function doLogin() {
+  const pw = document.getElementById('password-input').value;
+  if (pw === ADMIN_PASSWORD) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-wrap').style.display = 'block';
+    // Pre-fill saved URL
+    const saved = getScriptUrl();
+    if (saved) document.getElementById('script-url-input').value = saved;
+    init();
+  } else {
+    document.getElementById('login-error').style.display = 'flex';
+  }
+}
+
+function logout() {
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('admin-wrap').style.display = 'none';
+  document.getElementById('password-input').value = '';
+}
+
+// ════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════
+function init() {
+  document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+  const url = getScriptUrl();
+  // Always pre-fill the settings input with the current URL (default or saved override)
+  document.getElementById('script-url-input').value = url;
+  updateConnStatus('loading');
+  loadPosts();
+}
+
+// ════════════════════════════════════════════════
+// CONNECTION STATUS
+// ════════════════════════════════════════════════
+function updateConnStatus(state) {
+  const el = document.getElementById('conn-indicator');
+  el.className = 'conn-status';
+  if (state === 'ok')      { el.classList.add('conn-ok');   el.innerHTML = '<i class="fas fa-circle"></i> Connected'; }
+  else if (state === 'err'){ el.classList.add('conn-err');  el.innerHTML = '<i class="fas fa-circle"></i> Connection error'; }
+  else if (state === 'warn'){ el.classList.add('conn-warn'); el.innerHTML = '<i class="fas fa-circle"></i> Not connected'; }
+  else                      { el.classList.add('conn-warn'); el.innerHTML = '<div class="spinner" style="width:12px;height:12px;border-width:2px;"></div> Connecting...'; }
+}
+
+// ════════════════════════════════════════════════
+// LOAD POSTS FROM GOOGLE SHEETS
+// ════════════════════════════════════════════════
+async function loadPosts() {
+  const url = getScriptUrl();
+  if (!url) return;
+
+  showEmptyState('<div class="spinner"></div><p style="margin-top:12px;">Loading from Google Sheets...</p>');
+
+  try {
+    const res = await fetch(url + '?action=getPosts', { method: 'GET' });
+    const data = await res.json();
+
+    if (!data.success) throw new Error(data.message || 'Failed to load');
+
+    updateConnStatus('ok');
+    renderPostsList(data.posts || []);
+  } catch(e) {
+    updateConnStatus('err');
+    showEmptyState('<i class="fas fa-exclamation-triangle" style="font-size:36px;color:var(--danger);margin-bottom:12px;display:block;"></i><strong>Could not connect to Google Sheets.</strong><br><span style="font-size:13px;color:var(--text-muted);">Check your Script URL in Settings, or verify your deployment is set to "Anyone".</span>');
+  }
+}
+
+// Global post store  avoids passing large objects through onclick attributes
+let POST_CACHE = {};
+
+function renderPostsList(posts) {
+  document.getElementById('post-count').textContent = posts.length;
+  const container = document.getElementById('posts-list');
+
+  if (!posts.length) {
+    showEmptyState('<i class="fas fa-pen-nib"></i><h3 style="margin:12px 0 8px;">No posts yet</h3><p>Click "New Post" to write your first blog post.</p>');
+    return;
+  }
+
+  // Store posts in cache keyed by slug
+  POST_CACHE = {};
+  posts.forEach(p => { POST_CACHE[p.slug] = p; });
+
+  container.innerHTML = `
+    <table class="posts-table">
+      <thead><tr><th>Post</th><th>Category</th><th>Date</th><th>Actions</th></tr></thead>
+      <tbody>
+        ${posts.map(p => `
+          <tr>
+            <td>
+              <div class="post-row-title">${p.title}</div>
+              <div class="post-row-excerpt">${p.excerpt}</div>
+            </td>
+            <td><span class="badge badge-cat">${p.category}</span></td>
+            <td style="font-size:13px;color:var(--text-muted);white-space:nowrap;">${formatDate(p.date)}</td>
+            <td>
+              <div class="post-actions">
+                <button class="btn btn-ghost btn-sm" onclick="editPostBySlug('${p.slug}')"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deletePost('${p.slug}','${p.title.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')"><i class="fas fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>`;
+}
+
+function showEmptyState(html) {
+  document.getElementById('posts-list').innerHTML = `<div class="empty-state">${html}</div>`;
+  document.getElementById('post-count').textContent = '0';
+}
+
+// ════════════════════════════════════════════════
+// SAVE POST TO GOOGLE SHEETS
+// ════════════════════════════════════════════════
+async function savePost() {
+  const url = getScriptUrl();
+  if (!url) { toastErr('Please add your Script URL in Settings first.'); showTab('settings'); return; }
+
+  const title    = document.getElementById('f-title').value.trim();
+  const slug     = document.getElementById('f-slug').value.trim().replace(/\s+/g,'-').toLowerCase();
+  const category = document.getElementById('f-category').value;
+  const date     = document.getElementById('f-date').value;
+  const excerpt  = document.getElementById('f-excerpt').value.trim();
+  const content  = document.getElementById('content-editor').value.trim();
+
+  if (!title || !slug || !category || !date || !excerpt || !content) {
+    toastErr('Please fill in all required fields (Title, Category, Date, Excerpt, Content).');
+    return;
+  }
+
+  const post = {
+    action:   'savePost',
+    password: ADMIN_PASSWORD,
+    slug,
+    title,
+    excerpt,
+    content,
+    category,
+    date,
+    author:   document.getElementById('f-author').value.trim() || 'UK Removal Team',
+    readTime: parseInt(document.getElementById('f-readtime').value) || 5,
+    image:    document.getElementById('f-image').value.trim() || '',
+    tags:     document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean)
+  };
+
+  setSaveStatus('saving', 'Saving...');
+  document.getElementById('save-btn').disabled = true;
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(post)
+    });
+    const data = await res.json();
+
+    if (!data.success) throw new Error(data.message);
+
+    setSaveStatus('saved', '✓ Saved & live on your blog!');
+    toastOk('Post saved! Your blog updated automatically.');
+    clearForm();
+    showTab('posts');
+    loadPosts();
+  } catch(e) {
+    setSaveStatus('error', '✗ Save failed: ' + e.message);
+    toastErr('Failed to save: ' + e.message);
+  } finally {
+    document.getElementById('save-btn').disabled = false;
+  }
+}
+
+// ════════════════════════════════════════════════
+// DELETE POST
+// ════════════════════════════════════════════════
+async function deletePost(slug, title) {
+  if (!confirm(`Delete "${title}"? This cannot be undone.`)) return;
+
+  const url = getScriptUrl();
+  if (!url) { toastErr('Script URL not set.'); return; }
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'deletePost', password: ADMIN_PASSWORD, slug })
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message);
+    toastOk('Post deleted.');
+    loadPosts();
+  } catch(e) {
+    toastErr('Delete failed: ' + e.message);
+  }
+}
+
+// ════════════════════════════════════════════════
+// EDIT POST
+// ════════════════════════════════════════════════
+function editPostBySlug(slug) {
+  const post = POST_CACHE[slug];
+  if (!post) { toastErr('Post not found. Please refresh.'); return; }
+  document.getElementById('form-heading').innerHTML = '<i class="fas fa-edit" style="color:var(--accent);margin-right:10px;"></i>Edit Post';
+  document.getElementById('edit-slug').value   = post.slug;
+  document.getElementById('f-title').value     = post.title;
+  document.getElementById('f-slug').value      = post.slug;
+  document.getElementById('f-category').value  = post.category;
+  document.getElementById('f-date').value      = (post.date || '').substring(0, 10);
+  document.getElementById('f-author').value    = post.author || '';
+  document.getElementById('f-readtime').value  = post.readTime || 5;
+  document.getElementById('f-image').value     = post.image || '';
+  document.getElementById('f-excerpt').value   = post.excerpt;
+  document.getElementById('f-tags').value      = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+  document.getElementById('content-editor').value = post.content;
+  showTab('new');
+  window.scrollTo(0,0);
+}
+
+// ════════════════════════════════════════════════
+// SETTINGS
+// ════════════════════════════════════════════════
+function saveScriptUrl() {
+  const url = document.getElementById('script-url-input').value.trim();
+  if (!url) { toastErr('Please paste your Script URL first.'); return; }
+  if (!url.startsWith('https://script.google.com')) { toastErr('URL should start with https://script.google.com'); return; }
+  setScriptUrl(url);
+  toastOk('URL saved! Testing connection...');
+  testConnection();
+}
+
+async function testConnection() {
+  const url = getScriptUrl();
+  if (!url) { toastErr('No URL saved yet.'); return; }
+
+  updateConnStatus('loading');
+  try {
+    const res = await fetch(url + '?action=getPosts');
+    const data = await res.json();
+    if (data.success !== undefined) {
+      updateConnStatus('ok');
+      toastOk('Connected! Posts will save directly to Google Sheets.');
+      loadPosts();
+    } else throw new Error('Unexpected response');
+  } catch(e) {
+    updateConnStatus('err');
+    toastErr('Connection failed. Check your Script URL and deployment settings.');
+  }
+}
+
+// ════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const tabs = ['posts','new','settings'];
+  const idx  = tabs.indexOf(id);
+  if (idx > -1) document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+  if (id === 'posts') loadPosts();
+  if (id === 'settings') {
+    const saved = getScriptUrl();
+    if (saved) document.getElementById('script-url-input').value = saved;
+  }
+}
+
+function clearForm() {
+  document.getElementById('form-heading').innerHTML = '<i class="fas fa-pen" style="color:var(--accent);margin-right:10px;"></i>New Blog Post';
+  document.getElementById('edit-slug').value = '';
+  ['f-title','f-slug','f-author','f-image','f-excerpt','f-tags','content-editor'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-readtime').value = '';
+  document.getElementById('f-category').value = '';
+  document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('preview-pane').style.display = 'none';
+  setSaveStatus('', '');
+}
+
+function autoSlug() {
+  if (document.getElementById('edit-slug').value) return;
+  const title = document.getElementById('f-title').value;
+  const slug = title.toLowerCase().replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-').replace(/-+/g,'-');
+  document.getElementById('f-slug').value = slug;
+}
+
+function togglePreview() {
+  const pane = document.getElementById('preview-pane');
+  document.getElementById('preview-content').innerHTML = document.getElementById('content-editor').value;
+  pane.style.display = pane.style.display === 'block' ? 'none' : 'block';
+  if (pane.style.display === 'block') pane.scrollIntoView({behavior:'smooth'});
+}
+
+function setSaveStatus(type, msg) {
+  const el = document.getElementById('save-status');
+  el.className = 'save-status' + (type ? ' ' + type : '');
+  el.innerHTML = msg;
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  return new Date(dateStr).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'});
+}
+
+function toastOk(msg) {
+  const el = document.getElementById('toast-ok');
+  document.getElementById('toast-ok-msg').textContent = msg;
+  el.style.display = 'flex';
+  setTimeout(() => el.style.display = 'none', 4000);
+}
+
+function toastErr(msg) {
+  const el = document.getElementById('toast-err');
+  document.getElementById('toast-err-msg').textContent = msg;
+  el.style.display = 'flex';
+  setTimeout(() => el.style.display = 'none', 5000);
+}
+</script>
+</body>
+</html>

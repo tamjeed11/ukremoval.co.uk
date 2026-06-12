@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="256x256" href="/img/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="197123b5e313bb58">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Moving tips, packing guides, and removal advice from UK Removal & Logistics Ltd. Expert guides for home moves, office relocations and storage across the UK.">
+  <meta property="og:title" content="Moving Tips & Advice Blog – UK Removal & Logistics">
+  <meta property="og:description" content="Expert moving guides, packing tips, and relocation advice from the UK's trusted removals company.">
+  <meta property="og:url" content="https://www.ukremoval.co.uk/blog">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UK Removal & Logistics Ltd">
+  <meta name="robots" content="index, follow">
+  <title>Moving Tips & Advice Blog – UK Removal & Logistics Ltd</title>
+  <link rel="canonical" href="https://www.ukremoval.co.uk/blog">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="shared.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"UK Removal & Logistics Blog","url":"https://www.ukremoval.co.uk/blog","description":"Moving tips, packing guides and removal advice","publisher":{"@type":"Organization","name":"UK Removal & Logistics Ltd","url":"https://www.ukremoval.co.uk"}}</script>
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      position: relative;
+      padding: 140px 0 100px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    /* ── BLOG GRID ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    /* ── BLOG CARD ── */
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-border);
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--bg-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card-img.no-img {
+      background: linear-gradient(135deg, var(--accent-glow), var(--bg-muted));
+    }
+    .blog-card-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .blog-category {
+      padding: 4px 12px;
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .blog-date { font-size: 12px; color: var(--text-muted); }
+    .blog-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .blog-read-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .blog-read-more {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ── FILTERS ── */
+    .blog-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #050508;
+    }
+
+    /* ── SEARCH ── */
+    .blog-search {
+      max-width: 480px;
+      margin: 24px auto 0;
+      position: relative;
+    }
+    .blog-search input {
+      width: 100%;
+      padding: 14px 48px 14px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      background: var(--bg-card);
+      color: var(--text);
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.25s;
+    }
+    .blog-search input:focus { border-color: var(--accent); }
+    .blog-search i {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* ── EMPTY STATE ── */
+    .blog-empty {
+      text-align: center;
+      padding: 80px 0;
+      color: var(--text-muted);
+      grid-column: 1 / -1;
+    }
+    .blog-empty i { font-size: 48px; margin-bottom: 16px; display: block; color: var(--accent); }
+    .blog-empty h3 { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+
+    /* ══════════════════════════════════════════
+       SKELETON LOADER
+    ══════════════════════════════════════════ */
+    @keyframes skeleton-shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position:  600px 0; }
+    }
+    .skeleton {
+      background: linear-gradient(
+        90deg,
+        var(--bg-muted) 25%,
+        var(--bg-card)  50%,
+        var(--bg-muted) 75%
+      );
+      background-size: 600px 100%;
+      animation: skeleton-shimmer 1.4s ease-in-out infinite;
+      border-radius: var(--radius-sm);
+    }
+    .skeleton-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .skeleton-img {
+      width: 100%;
+      height: 200px;
+    }
+    .skeleton-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .skeleton-badge { width: 80px; height: 22px; }
+    .skeleton-title-1 { width: 90%; height: 20px; }
+    .skeleton-title-2 { width: 65%; height: 20px; }
+    .skeleton-line { width: 100%; height: 14px; }
+    .skeleton-line-short { width: 75%; height: 14px; }
+    .skeleton-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .skeleton-footer-l { width: 80px; height: 14px; }
+    .skeleton-footer-r { width: 90px; height: 14px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .blog-grid { grid-template-columns: 1fr; } .page-hero { padding: 120px 0 80px; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="/" class="nav-brand"><img src="./img/main%20logo.webp" alt="UK Removal &amp; Logistics"></a>
+    <div class="nav-menu">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/testimonials">Reviews</a>
+      <a href="/areas">Areas</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="/faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+442037699990" class="nav-phone"><i class="fas fa-phone"></i> 020 3769 9990</a>
+      <a href="/quote" class="btn-primary btn-shake">Get Free Quote</a>
+      <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/about">About</a>
+    <a href="/testimonials">Reviews</a>
+    <a href="/areas">Areas</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+    <a href="/faq">FAQ</a>
+    <div class="mobile-nav-footer">
+      <a href="/quote" class="btn-primary btn-lg btn-shake" style="width:100%;justify-content:center;">Get Free Quote</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero blog-hero" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-label"><i class="fas fa-pen-nib"></i> Moving Advice</div>
+      <h1 class="section-title" style="font-size:clamp(2rem,4vw,3rem);margin-top:12px;">Moving Tips &amp; <em>Expert Guides</em></h1>
+      <p class="section-subtitle">Practical advice from the UK's trusted removals team  packing hacks, moving checklists, cost guides and more.</p>
+      <div class="blog-search">
+        <input type="text" id="blog-search-input" placeholder="Search articles..." oninput="filterPosts()" aria-label="Search blog posts">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </div>
+      <div class="blog-filters" id="category-filters">
+        <button class="filter-btn active" onclick="setCategory('all', this)">All Posts</button>
+        <button class="filter-btn" onclick="setCategory('Moving Tips', this)">Moving Tips</button>
+        <button class="filter-btn" onclick="setCategory('Packing Guides', this)">Packing Guides</button>
+        <button class="filter-btn" onclick="setCategory('Office Moves', this)">Office Moves</button>
+        <button class="filter-btn" onclick="setCategory('Cost Guides', this)">Cost Guides</button>
+        <button class="filter-btn" onclick="setCategory('Local Guides', this)">Local Guides</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid" id="blog-grid">
+        <!-- Skeleton cards shown immediately while fetching -->
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton skeleton-badge"></div>
+            <div class="skeleton skeleton-title-1"></div>
+            <div class="skeleton skeleton-title-2"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line-short"></div>
+            <div class="skeleton-footer">
+              <div class="skeleton skeleton-footer-l"></div>
+              <div class="skeleton skeleton-footer-r"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton skeleton-badge"></div>
+            <div class="skeleton skeleton-title-1"></div>
+            <div class="skeleton skeleton-title-2"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line-short"></div>
+            <div class="skeleton-footer">
+              <div class="skeleton skeleton-footer-l"></div>
+              <div class="skeleton skeleton-footer-r"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton skeleton-badge"></div>
+            <div class="skeleton skeleton-title-1"></div>
+            <div class="skeleton skeleton-title-2"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line"></div>
+            <div class="skeleton skeleton-line-short"></div>
+            <div class="skeleton-footer">
+              <div class="skeleton skeleton-footer-l"></div>
+              <div class="skeleton skeleton-footer-r"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-title">Ready to Move?<br><span>Get Your Free Quote</span></h2>
+          <p class="cta-text">Join 500+ happy customers. Response within minutes.</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="/quote" class="btn-primary btn-lg btn-shake"><i class="fas fa-file-invoice"></i> Get Free Quote</a>
+          <a href="tel:+442037699990" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> 020 3769 9990</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><img src="./img/footer%20logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
+          <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> 020 3769 9990</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7754 844481</div>
+            <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
+            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/ukremoval/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61578389480824" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/uk_removal" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/ukremoval/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/home-removals">Home Removals</a>
+          <a href="/office-removals">Office Relocations</a>
+          <a href="/storage-solutions">Storage Solutions</a>
+          <a href="/packing-services">Packing Services</a>
+          <a href="/piano-removals">Piano Removals</a>
+          <a href="/student-moves">Student Moves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/testimonials">Reviews</a>
+          <a href="/areas">Areas Covered</a>
+          <a href="/blog">Blog</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+          <a href="/quote">Get Quote</a>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">Open 24/7 &nbsp;|&nbsp; Company No: 15954477<br>© 2026 UK Removal & Logistics Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner">
+    <p>🍪 We use cookies to improve your experience and analyse site traffic. <a href="/privacy">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button class="cookie-btn-accept" onclick="acceptCookies()">Accept</button>
+      <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+
+  <!-- blog-data.js runs first  may already have cached posts ready -->
+  <script src="blog-data.js"></script>
+  <script src="shared.js" defer></script>
+  <script>
+    let currentCategory = 'all';
+
+    function setCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterPosts();
+    }
+
+    function filterPosts() {
+      const q = (document.getElementById('blog-search-input').value || '').toLowerCase().trim();
+      const posts = window.BLOG_POSTS || [];
+      const filtered = posts.filter(p => {
+        const catMatch = currentCategory === 'all' || p.category === currentCategory;
+        const searchMatch = !q ||
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          (p.tags || []).some(t => t.toLowerCase().includes(q));
+        return catMatch && searchMatch;
+      });
+      renderPosts(filtered);
+    }
+
+    function renderPosts(posts) {
+      const grid = document.getElementById('blog-grid');
+      if (!posts.length) {
+        grid.innerHTML = `
+          <div class="blog-empty">
+            <i class="fas fa-pen-nib"></i>
+            <h3>No posts yet</h3>
+            <p>Check back soon for moving tips and guides.</p>
+          </div>`;
+        return;
+      }
+      grid.innerHTML = posts.map(p => `
+        <a href="/blog-post.html?slug=${encodeURIComponent(p.slug)}" class="blog-card">
+          <div class="blog-card-img ${p.image ? '' : 'no-img'}">
+            ${p.image
+              ? `<img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async">`
+              : `<i class="fas fa-newspaper" style="color:var(--accent);font-size:48px;" aria-hidden="true"></i>`}
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">${p.category}</span>
+              <span class="blog-date"><i class="fas fa-calendar" style="margin-right:4px;" aria-hidden="true"></i>${formatDate(p.date)}</span>
+            </div>
+            <h2 class="blog-card-title">${p.title}</h2>
+            <p class="blog-card-excerpt">${p.excerpt}</p>
+            <div class="blog-card-footer">
+              <span class="blog-read-time"><i class="fas fa-clock" aria-hidden="true"></i> ${p.readTime || '5'} min read</span>
+              <span class="blog-read-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // Called by blog-data.js after a successful fetch
+    window.renderBlog = filterPosts;
+
+    // On page load  if cache was warm, posts are already in window.BLOG_POSTS
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.BLOG_POSTS && window.BLOG_POSTS.length) {
+        renderPosts(window.BLOG_POSTS);
+      }
+      // else: skeleton stays visible until the fetch in blog-data.js completes
+    });
+
+    // Cookie consent
+    (function () {
+      var b = document.getElementById('cookie-banner');
+      if (!localStorage.getItem('cookieConsent') && b) b.style.display = 'flex';
+    })();
+    function acceptCookies()  { localStorage.setItem('cookieConsent', 'accepted');  document.getElementById('cookie-banner').style.display = 'none'; }
+    function declineCookies() { localStorage.setItem('cookieConsent', 'declined');  document.getElementById('cookie-banner').style.display = 'none'; }
+  </script>
+</body>
+</html>

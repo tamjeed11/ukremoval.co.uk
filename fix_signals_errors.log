@@ -1,0 +1,65 @@
+2026-05-01 16:01:41,737  ERROR  Strategy index_cpwr_30m5:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 196, in fix_strategy
+    cur.execute(
+  File "C:\Users\Arsalan Bakhtiar AB\AppData\Roaming\Python\Python312\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+2026-05-01 16:01:41,741  ERROR  Strategy bright31:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 171, in fix_strategy
+    if not table_exists(cur, ledger_tbl):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\arsalan\table.py", line 116, in table_exists
+    cur.execute(
+  File "C:\Users\Arsalan Bakhtiar AB\AppData\Roaming\Python\Python312\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+2026-05-01 16:50:18,505  ERROR  Strategy bright42:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 196, in fix_strategy
+    cur.execute(
+  File "C:\Users\Arsalan Bakhtiar AB\AppData\Roaming\Python\Python312\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+2026-05-01 16:50:18,509  ERROR  Strategy bright43:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 196, in fix_strategy
+    cur.execute(
+  File "C:\Users\Arsalan Bakhtiar AB\AppData\Roaming\Python\Python312\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+2026-05-02 00:31:28,172  ERROR  Strategy locomotive32:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 312, in fix_strategy
+    conn.commit()
+psycopg2.OperationalError: could not receive data from server: Software caused connection abort (0x00002745/10053)
+
+
+2026-05-02 00:31:28,188  ERROR  Strategy dax1h_ddsharp_10:
+Traceback (most recent call last):
+  File "d:\arsalan\table.py", line 312, in fix_strategy
+    conn.commit()
+psycopg2.OperationalError: could not receive data from server: Software caused connection abort (0x00002745/10053)
+
+

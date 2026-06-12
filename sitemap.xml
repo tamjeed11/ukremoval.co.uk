@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core Pages -->
+  <url><loc>https://www.ukremoval.co.uk/</loc><changefreq>weekly</changefreq><priority>1.0</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/about</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/services</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/areas</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/quote</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/testimonials</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+
+  <!-- Service Pages -->
+  <url><loc>https://www.ukremoval.co.uk/home-removals</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/office-removals</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/packing-services</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/storage-solutions</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/piano-removals</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/student-moves</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+
+  <!-- City / Location Pages -->
+  <url><loc>https://www.ukremoval.co.uk/removals-london</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-manchester</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-birmingham</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-leeds</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-bristol</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-sheffield</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-liverpool</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-edinburgh</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-glasgow</loc><changefreq>monthly</changefreq><priority>0.7</priority><lastmod>2025-06-20</lastmod></url>
+  <url><loc>https://www.ukremoval.co.uk/removals-nottingham</loc><changefreq>monthly</changefreq><priority>0.6</priority><lastmod>2025-06-20</lastmod></url>
+
+</urlset>
