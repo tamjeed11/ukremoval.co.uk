@@ -563,8 +563,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // ↓↓ Paste your Google Apps Script URL here after deploying ↓↓
-      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5FZSZ9PEtHJIoyTA8KIo1S2SZaEbAru_c22A8qDveqJSny2FJ4Fxv5J3ZETCVEeo8/exec';
+      const API_URL = '/api/send-email';
 
       const payload = JSON.stringify({
         formType: 'quote',
@@ -575,15 +574,16 @@ tp('register', 'mtmU7h8SbjJcpj2M');
         propertyType: document.getElementById('q_proptype').value,
         packingHelp: document.getElementById('q_packing').value,
         accessDetails: document.getElementById('q_access').value,
-        additionalNotes: document.getElementById('q_notes').value,
+        notes: document.getElementById('q_notes').value,
         firstName: fname,
         lastName: lname,
         email: email,
         phone: phone
       });
 
-      fetch(SCRIPT_URL, {
+      fetch(API_URL, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: payload
       })
       .then(res => res.json())

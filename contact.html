@@ -538,8 +538,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       document.getElementById('contact-success').style.display = 'none';
       document.getElementById('contact-error').style.display = 'none';
 
-      // ↓↓ Paste your Google Apps Script URL here after deploying ↓↓
-      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5FZSZ9PEtHJIoyTA8KIo1S2SZaEbAru_c22A8qDveqJSny2FJ4Fxv5J3ZETCVEeo8/exec';
+      const API_URL = '/api/send-email';
 
       // Honeypot check
       if (this.querySelector('[name="website_url"]').value) {
@@ -560,8 +559,9 @@ tp('register', 'mtmU7h8SbjJcpj2M');
         message: this.querySelector('[name="Message"]').value.trim()
       });
 
-      fetch(SCRIPT_URL, {
+      fetch(API_URL, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: payload
       })
       .then(res => res.json())
