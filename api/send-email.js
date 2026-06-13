@@ -31,7 +31,7 @@ module.exports = async function handler(req, res) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'UK Removal & Logistics <noreply@ukremoval.co.uk>',
+      from: 'UK Removal & Logistics <onboarding@resend.dev>',
       to: ['sales@ukremoval.co.uk'],
       replyTo: data.email || 'sales@ukremoval.co.uk',
       subject,
