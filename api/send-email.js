@@ -1,4 +1,4 @@
-const { Resend } = require('resend');
+﻿const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -84,7 +84,7 @@ function buildQuoteEmail(d) {
       </div>
     </div>
     <div style="padding:16px 32px;background:#f9f9f9;text-align:center;">
-      <p style="margin:0;font-size:12px;color:#999;">UK Removal & Logistics Ltd · sales@ukremoval.co.uk · 020 3769 9990</p>
+      <p style="margin:0;font-size:12px;color:#999;">UK Removal & Logistics Ltd · sales@ukremoval.co.uk · 020 3084 3562</p>
     </div>
   </div>`;
 }
@@ -115,7 +115,7 @@ function buildContactEmail(d) {
       </div>
     </div>
     <div style="padding:16px 32px;background:#f9f9f9;text-align:center;">
-      <p style="margin:0;font-size:12px;color:#999;">UK Removal & Logistics Ltd · sales@ukremoval.co.uk · 020 3769 9990</p>
+      <p style="margin:0;font-size:12px;color:#999;">UK Removal & Logistics Ltd · sales@ukremoval.co.uk · 020 3084 3562</p>
     </div>
   </div>`;
 }

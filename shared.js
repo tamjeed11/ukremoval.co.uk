@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bar.className = 'mobile-cta-bar';
     bar.setAttribute('aria-label', 'Quick contact actions');
     bar.innerHTML = `
-      <a href="tel:+442037699990" class="mcta-call" aria-label="Call us">
+      <a href="tel:+442030843562" class="mcta-call" aria-label="Call us">
         <i class="fas fa-phone" aria-hidden="true"></i> Call
       </a>
       <a href="/quote" class="mcta-quote" aria-label="Get free quote">
