@@ -1,13 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <!-- Google tag (gtag.js): one tag with Google Ads and GA4 destinations -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2: deny measurement storage until the visitor chooses.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    // Restore a previously accepted choice before any config command runs.
+    (function () {
+      var savedConsent = null;
+      try { savedConsent = window.localStorage.getItem('cookieConsent'); } catch (e) {}
+      if (savedConsent === 'accepted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <script>
     gtag('js', new Date());
+    // One Google tag, two destinations; page_view is enabled for GA4 by default.
     gtag('config', 'AW-17326047444');
+    gtag('config', 'G-JKDJ8QQPQS', { 'send_page_view': true });
   </script>
   <link rel="icon" type="image/svg+xml" href="./img/logo%20footer.svg">
   <link rel="icon" type="image/webp" href="./img/footer_logo.webp">
@@ -17,10 +41,10 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="197123b5e313bb58">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact UK Removal & Logistics: call 020 3084 3562, WhatsApp or email. Available 24/7 for removal quotes. London &amp; UK-wide service. Response in minutes.">
+  <meta name="description" content="Contact UK Removal & Logistics: call +44 7497 763670, WhatsApp or email. Available 24/7 for removal quotes. London &amp; UK-wide service. Response in minutes.">
   <meta name="keywords" content="contact removal company, removals phone number, moving company contact London, UK Removal & Logistics contact, 24/7 removal service">
   <meta property="og:title" content="Contact Us | UK Removal & Logistics London">
-  <meta property="og:description" content="Contact UK Removal & Logistics on 020 3084 3562, WhatsApp. Available 24/7 for removal quotes across London and the UK. Response within minutes.">
+  <meta property="og:description" content="Contact UK Removal & Logistics on +44 7497 763670, WhatsApp. Available 24/7 for removal quotes across London and the UK. Response within minutes.">
   <meta property="og:url" content="https://www.ukremoval.co.uk/contact">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="UK Removal & Logistics Ltd">
@@ -341,7 +365,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       <a href="/faq">FAQ</a>
     </div>
     <div class="nav-actions">
-      <a href="tel:+442030843562" class="nav-phone"><i class="fas fa-phone"></i> 020 3084 3562</a>
+      <a href="tel:+447497763670" class="nav-phone"><i class="fas fa-phone"></i> +44 7497 763670</a>
       <a href="/quote" class="btn-primary btn-shake">Get Free Quote</a>
       <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -372,17 +396,17 @@ tp('register', 'mtmU7h8SbjJcpj2M');
           <div class="section-label"><i class="fas fa-phone-alt"></i> Contact Details</div>
           <h2 class="section-title" style="font-size:30px;">Get in <em>Touch</em></h2>
           <div style="margin-top:24px;">
-            <a href="tel:+442030843562" class="contact-card">
+            <a href="tel:+447497763670" class="contact-card">
               <div class="contact-icon"><i class="fas fa-phone"></i></div>
-              <div><div class="contact-label">Call Us</div><div class="contact-value">020 3084 3562</div><div class="contact-sub">Available 24/7</div></div>
+              <div><div class="contact-label">Call Us</div><div class="contact-value">+44 7497 763670</div><div class="contact-sub">Available 24/7</div></div>
             </a>
-            <a href="tel:+442030843562" class="contact-card">
+            <a href="tel:+447497763670" class="contact-card">
               <div class="contact-icon"><i class="fas fa-mobile-alt"></i></div>
               <div><div class="contact-label">Mobile</div><div class="contact-value">077 5484 4481</div><div class="contact-sub">Also available on WhatsApp</div></div>
             </a>
-            <a href="https://wa.me/447754844481" target="_blank" class="contact-card">
+            <a href="https://wa.me/447497763670" target="_blank" class="contact-card">
               <div class="contact-icon"><i class="fab fa-whatsapp" style="color:#25D366;font-size:22px;"></i></div>
-              <div><div class="contact-label">WhatsApp</div><div class="contact-value">+44 7754 844481</div><div class="contact-sub">Fastest way to reach us</div></div>
+              <div><div class="contact-label">WhatsApp</div><div class="contact-value">+44 7497 763670</div><div class="contact-sub">Fastest way to reach us</div></div>
             </a>
             <a href="mailto:sales@ukremoval.co.uk" class="contact-card">
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -452,11 +476,11 @@ tp('register', 'mtmU7h8SbjJcpj2M');
             <p style="color:var(--text-secondary);font-size:14px;margin-top:6px;">Thanks! We'll get back to you within minutes.</p>
           </div>
           <div id="contact-error" style="display:none;background:rgba(255,80,80,0.07);border:1px solid rgba(255,80,80,0.25);border-radius:12px;padding:16px 24px;text-align:center;margin-top:16px;">
-            <p style="color:#ff5050;font-size:14px;">Something went wrong. Please call us on <a href="tel:+442030843562" style="color:#ff5050;font-weight:700;">020 3084 3562</a> or WhatsApp us.</p>
+            <p style="color:#ff5050;font-size:14px;">Something went wrong. Please call us on <a href="tel:+447497763670" style="color:#ff5050;font-weight:700;">+44 7497 763670</a> or WhatsApp us.</p>
           </div>
           <div class="form-alts">
-            <a href="tel:+442030843562" class="form-alt form-alt-call"><i class="fas fa-phone"></i> Call Instead</a>
-            <a href="https://wa.me/447754844481" target="_blank" class="form-alt form-alt-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="tel:+447497763670" class="form-alt form-alt-call"><i class="fas fa-phone"></i> Call Instead</a>
+            <a href="https://wa.me/447497763670" target="_blank" class="form-alt form-alt-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
           </div>
           </form>
         </div>
@@ -471,8 +495,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
           <div class="footer-brand"><img src="./img/footer_logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
           <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
           <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
-            <div class="footer-contact-item"><i class="fas fa-phone"></i> 020 3084 3562</div>
-            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7754 844481</div>
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> +44 7497 763670</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7497 763670</div>
             <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
             <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
           </div>
@@ -634,8 +658,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
   </div>
   <script>
     (function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('cookieConsent')&&b){b.classList.add('visible');}})();
-    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
-    function declineCookies(){localStorage.setItem('cookieConsent','declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function declineCookies(){localStorage.setItem('cookieConsent','declined');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
   </script>
 </body>
 </html>

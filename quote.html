@@ -1,13 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <!-- Google tag (gtag.js): one tag with Google Ads and GA4 destinations -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2: deny measurement storage until the visitor chooses.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    // Restore a previously accepted choice before any config command runs.
+    (function () {
+      var savedConsent = null;
+      try { savedConsent = window.localStorage.getItem('cookieConsent'); } catch (e) {}
+      if (savedConsent === 'accepted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <script>
     gtag('js', new Date());
+    // One Google tag, two destinations; page_view is enabled for GA4 by default.
     gtag('config', 'AW-17326047444');
+    gtag('config', 'G-JKDJ8QQPQS', { 'send_page_view': true });
   </script>
   <link rel="icon" type="image/svg+xml" href="./img/logo%20footer.svg">
   <link rel="icon" type="image/webp" href="./img/footer_logo.webp">
@@ -54,7 +78,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
 </script>
   <!-- End TrustBox script -->
   <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"UK Removal & Logistics Ltd","url":"https://www.ukremoval.co.uk","telephone":"+442030843562","email":"sales@ukremoval.co.uk","address":{"@type":"PostalAddress","streetAddress":"Unit 1, 17-18 Regal House","addressLocality":"Ilford","postalCode":"IG2 7JY","addressCountry":"GB"},"openingHours":"Mo-Su 00:00-23:59","areaServed":"GB"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"UK Removal & Logistics Ltd","url":"https://www.ukremoval.co.uk","telephone":"+447497763670","email":"sales@ukremoval.co.uk","address":{"@type":"PostalAddress","streetAddress":"Unit 1, 17-18 Regal House","addressLocality":"Ilford","postalCode":"IG2 7JY","addressCountry":"GB"},"openingHours":"Mo-Su 00:00-23:59","areaServed":"GB"}</script>
   <!-- Optimized Google Fonts with font-display=swap -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
@@ -63,266 +87,219 @@ tp('register', 'mtmU7h8SbjJcpj2M');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <style>
-    .page-hero {
-      position: relative;
-      padding: 130px 0 100px;
+    /* Single-page quote redesign: visual layer only. Existing IDs and submit hooks are preserved. */
+    .page-hero.quote-hero {
+      padding: clamp(48px, 6vw, 78px) 0 42px;
+      background: linear-gradient(135deg, #f4fbf6 0%, #ffffff 60%, #edf8f0 100%);
+      border-bottom: 1px solid rgba(14, 126, 69, 0.08);
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.40) 45%, rgba(255,255,255,0.62) 100%),
-                  url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover;
-      background-blend-mode: screen;
-      filter: saturate(1.04);
     }
-    .page-hero::after {
+    .quote-hero::before {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 140px;
-      background: linear-gradient(to top, var(--bg), transparent);
-    }
-    .page-hero-content { position: relative; z-index: 2; text-align: center; max-width: 560px; margin: 0 auto; }
-
-    .quote-layout {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 32px;
-      align-items: start;
-    }
-
-    /* Step Indicator */
-    .step-bar {
-      display: flex;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-    .step-dot {
-      width: 40px; height: 40px;
+      width: 360px;
+      height: 360px;
       border-radius: 50%;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 14px;
-      color: var(--text-muted);
-      flex-shrink: 0;
-      transition: all 0.3s;
+      background: rgba(14, 126, 69, 0.055);
+      top: -180px;
+      left: -120px;
+      pointer-events: none;
     }
-    .step-dot.active { border-color: var(--accent); color: var(--accent); }
-    .step-dot.done { border-color: var(--accent); background: var(--accent); color: #050508; }
-    .step-line {
-      flex: 1;
-      height: 2px;
-      background: var(--border);
-      transition: all 0.3s;
+    .quote-hero::after {
+      height: 72px;
+      background: linear-gradient(to top, #f7fbf8, transparent);
     }
-    .step-line.done { background: var(--accent); }
-    .step-label {
-      font-size: 10px;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 6px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Step Card */
-    .step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-    }
-    .step-card h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .step-card > p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-    }
-
-    /* Service Options */
-    .service-opts {
+    .quote-hero-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
+      grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
+      gap: clamp(30px, 5vw, 72px);
+      align-items: center;
     }
-    .sopt {
-      background: var(--bg-surface);
-      border: 2px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
+    .quote-hero-copy { text-align: left; }
+    .quote-hero-copy .section-label {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: #0e7e45;
+      background: rgba(14, 126, 69, 0.08);
+      border-color: rgba(14, 126, 69, 0.18);
     }
-    .sopt:hover { border-color: rgba(0,212,170,0.3); background: var(--accent-glow2); }
-    .sopt.selected { border-color: var(--accent); background: var(--accent-glow); }
-    .sopt i { font-size: 24px; color: var(--accent); display: block; margin-bottom: 10px; }
-    .sopt span { font-size: 13px; font-weight: 700; color: var(--text); }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
+    .quote-hero-copy h1 {
+      max-width: 640px;
+      margin: 0;
+      color: #0d1720;
+      font-size: clamp(2.55rem, 5vw, 4.7rem) !important;
+      line-height: 1.02;
+      letter-spacing: -2.8px;
     }
-    .form-group label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .quote-hero-copy h1 em { color: #0e9a53; font-style: normal; }
+    .quote-hero-copy > p {
+      max-width: 520px;
+      margin: 20px 0 0 !important;
+      color: #51606a !important;
+      font-size: clamp(15px, 1.7vw, 18px) !important;
+      line-height: 1.65;
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--bg-surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      transition: all 0.3s;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-glow);
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: var(--text-dim); }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    .step-buttons {
-      display: flex;
-      gap: 12px;
+    .quote-hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 540px;
+      gap: 16px;
       margin-top: 32px;
     }
-    .btn-next {
-      flex: 1;
-      padding: 16px;
-      border-radius: var(--radius-full);
-      background: var(--accent);
-      color: #050508;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 15px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-next:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: var(--shadow-accent); }
-    .btn-back {
-      padding: 16px 24px;
-      border-radius: var(--radius-full);
-      background: var(--bg-surface);
-      color: var(--text-secondary);
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .btn-back:hover { background: var(--bg-card-hover); }
-
-    /* Success */
-    .success-card {
-      text-align: center;
-      padding: 60px 36px;
-    }
-    .success-icon {
-      width: 90px; height: 90px;
-      border-radius: var(--radius-lg);
-      background: var(--accent-glow);
-      border: 2px solid var(--accent-border);
+    .quote-proof-item { display: flex; flex-direction: column; gap: 7px; }
+    .quote-proof-item i {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 28px;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      color: #0e7e45;
+      background: #eaf7ef;
+      border: 1px solid rgba(14, 126, 69, 0.14);
+      font-size: 18px;
     }
-    .success-icon i { font-size: 38px; color: var(--accent); }
-    .success-card h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 14px;
+    .quote-proof-item strong { color: #16231d; font-size: 14px; line-height: 1.3; }
+    .quote-proof-item span { color: #68766e; font-size: 12px; line-height: 1.35; }
+    .quote-hero-visual {
+      position: relative;
+      min-height: clamp(300px, 33vw, 430px);
+      overflow: hidden;
+      border-radius: 30px;
+      background: #dcefe3;
+      box-shadow: 0 24px 60px rgba(21, 73, 43, 0.16);
     }
-    .success-card p {
-      font-size: 15px;
-      color: var(--text-secondary);
-      max-width: 420px;
-      margin: 0 auto 32px;
-      line-height: 1.78;
+    .quote-hero-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(5, 38, 19, 0.12), transparent 48%, rgba(5, 38, 19, 0.05));
+      pointer-events: none;
     }
-    .success-trust {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .success-trust span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    .success-trust i { color: var(--accent); font-size: 11px; }
-
-    /* Side Panel */
-    .quote-sidebar .side-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      margin-bottom: 16px;
-    }
-    .side-card h4 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .side-check {
+    .quote-hero-visual img { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
+    .quote-hero-badge {
+      position: absolute;
+      z-index: 2;
+      right: 20px;
+      bottom: 20px;
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-    }
-    .side-check i { color: var(--accent); font-size: 12px; width: 14px; }
-    .side-price-row {
-      display: flex;
-      justify-content: space-between;
+      padding: 12px 15px;
+      border-radius: 16px;
+      color: #14552f;
+      background: rgba(255, 255, 255, 0.93);
+      box-shadow: 0 10px 28px rgba(21, 73, 43, 0.15);
       font-size: 13px;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
+      font-weight: 800;
     }
-    .side-price-row:last-child { border-bottom: none; }
-    .side-price-row .label { color: var(--text-secondary); }
-    .side-price-row .value { font-weight: 700; color: var(--accent); }
+    .quote-hero-badge i { color: #0e9a53; font-size: 17px; }
 
-    @media (max-width: 1024px) {
-      .quote-layout { grid-template-columns: 1fr; }
-      .service-opts { grid-template-columns: repeat(2, 1fr); }
-      .form-row { grid-template-columns: 1fr; }
-      .step-card { padding: 28px 22px; }
+    .quote-page-main { padding: clamp(32px, 5vw, 66px) 0 88px; background: #f7fbf8; }
+    .quote-layout { display: block; }
+    .quote-main-column { max-width: 1060px; margin: 0 auto; }
+    .quote-form-card {
+      padding: clamp(24px, 4vw, 46px);
+      background: #ffffff;
+      border: 1px solid rgba(16, 88, 44, 0.08);
+      border-radius: 28px;
+      box-shadow: 0 20px 55px rgba(20, 75, 42, 0.09);
+    }
+    .quote-form-intro { display: flex; align-items: center; gap: 18px; margin-bottom: 30px; }
+    .quote-form-intro-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      color: #0e8d4d;
+      background: #eaf7ef;
+      font-size: 24px;
+    }
+    .quote-form-intro h2 { margin: 0 0 5px; color: #102017; font-family: 'Outfit', sans-serif; font-size: clamp(22px, 3vw, 30px); line-height: 1.15; font-weight: 800; }
+    .quote-form-intro p { margin: 0; color: #607068; font-size: 14px; line-height: 1.5; }
+    .single-page-section { padding: 0; background: transparent; border: 0; border-radius: 0; }
+    .single-page-section + .single-page-section { margin-top: 38px; padding-top: 34px; border-top: 1px solid #e5efe7; }
+    .step-card h2 { margin: 0 0 8px; color: #14231a; font-family: 'Outfit', sans-serif; font-size: clamp(21px, 3vw, 27px); font-weight: 800; }
+    .step-card > p { margin: 0 0 24px; color: #64736a; font-size: 14px; }
+    .service-opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 26px; }
+    .sopt { padding: 17px 12px; background: #fbfefc; border: 1.5px solid #dcebe0; border-radius: 16px; text-align: center; cursor: pointer; transition: all 0.25s ease; }
+    .sopt:hover { border-color: rgba(14, 154, 83, 0.45); background: #f1fbf4; transform: translateY(-2px); }
+    .sopt.selected { border-color: #0e9a53; background: #eaf7ef; box-shadow: 0 0 0 3px rgba(14, 154, 83, 0.08); }
+    .sopt i { display: block; margin-bottom: 9px; color: #0e8d4d; font-size: 21px; }
+    .sopt span { color: #1b2b21; font-size: 13px; font-weight: 700; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+    .form-group label { color: #223329; font-size: 12px; font-weight: 800; letter-spacing: 0.25px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; box-sizing: border-box; background: #fff; border: 1.5px solid #d7e4da; border-radius: 12px; padding: 14px 16px; color: #17231b; outline: none; font-size: 14px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #0e9a53; box-shadow: 0 0 0 3px rgba(14, 154, 83, 0.12); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #9aa9a0; }
+    .form-group textarea { min-height: 112px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .quote-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0 4px;
+      padding: 15px 17px;
+      border: 1px solid rgba(14, 126, 69, 0.18);
+      border-radius: 12px;
+      color: #267047;
+      background: #f0f9f3;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .quote-note i { color: #0e9a53; font-size: 18px; }
+    .quote-submit-wrap { margin-top: 30px; }
+    .quote-submit-wrap .btn-next { width: 100%; min-height: 52px; padding: 15px 18px; border-radius: 12px; background: #0e9a53; color: #fff; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 16px; border: 0; cursor: pointer; transition: all 0.25s ease; }
+    .quote-submit-wrap .btn-next:hover { background: #087d41; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(14, 126, 69, 0.2); }
+    .quote-security { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 13px; color: #697a70; font-size: 12px; text-align: center; }
+    .quote-security i { color: #0e9a53; }
+    .quote-contact-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 1060px; margin: 20px auto 0; padding: 22px 26px; background: #eef8f1; border: 1px solid rgba(14, 126, 69, 0.11); border-radius: 20px; }
+    .quote-contact-item { display: flex; align-items: center; gap: 14px; }
+    .quote-contact-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 auto; border-radius: 14px; color: #0e8d4d; background: #fff; box-shadow: 0 5px 15px rgba(20, 75, 42, 0.07); font-size: 20px; }
+    .quote-contact-item strong { display: block; color: #153322; font-size: 15px; }
+    .quote-contact-item a { display: block; margin-top: 3px; color: #0e7e45; font-size: 18px; font-weight: 800; text-decoration: none; }
+    .quote-contact-item span { display: block; margin-top: 2px; color: #6c7e72; font-size: 12px; }
+    .quote-sidebar { display: none; }
+    .success-card { padding: 54px 20px; text-align: center; }
+    .success-icon { display: flex; align-items: center; justify-content: center; width: 84px; height: 84px; margin: 0 auto 24px; border-radius: 24px; color: #0e9a53; background: #eaf7ef; border: 1px solid rgba(14, 126, 69, 0.13); }
+    .success-icon i { color: #0e9a53; font-size: 34px; }
+    .success-card h2 { margin-bottom: 12px; color: #14231a; font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; }
+    .success-card p { max-width: 430px; margin: 0 auto 28px; color: #64736a; font-size: 15px; line-height: 1.7; }
+    .success-trust { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; }
+    .success-trust span { display: flex; align-items: center; gap: 6px; color: #587061; font-size: 13px; }
+    .success-trust i { color: #0e9a53; font-size: 11px; }
+    @media (max-width: 900px) {
+      .quote-hero-grid { grid-template-columns: 1fr; }
+      .quote-hero-copy { text-align: center; }
+      .quote-hero-copy h1, .quote-hero-copy > p { margin-left: auto; margin-right: auto; }
+      .quote-hero-proof { margin-left: auto; margin-right: auto; text-align: left; }
+      .quote-hero-visual { min-height: 300px; }
+    }
+    @media (max-width: 640px) {
+      .page-hero.quote-hero { padding-top: 38px; }
+      .quote-hero-copy h1 { letter-spacing: -1.8px; }
+      .quote-hero-proof { gap: 9px; }
+      .quote-proof-item i { width: 36px; height: 36px; border-radius: 11px; font-size: 15px; }
+      .quote-proof-item strong { font-size: 12px; }
+      .quote-proof-item span { font-size: 11px; }
+      .quote-hero-visual { min-height: 230px; border-radius: 22px; }
+      .quote-form-card { padding: 22px 18px; border-radius: 22px; }
+      .quote-form-intro { align-items: flex-start; gap: 12px; }
+      .quote-form-intro-icon { width: 46px; height: 46px; border-radius: 15px; font-size: 19px; }
+      .quote-form-intro h2 { font-size: 21px; }
+      .service-opts { grid-template-columns: repeat(2, 1fr); gap: 9px; }
+      .sopt { padding: 14px 8px; }
+      .sopt span { font-size: 12px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .quote-contact-strip { grid-template-columns: 1fr; padding: 18px; }
+      .quote-contact-item a { font-size: 16px; }
+      .quote-note { align-items: flex-start; font-size: 13px; }
     }
   </style>
 </head>
@@ -340,7 +317,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       <a href="/faq">FAQ</a>
     </div>
     <div class="nav-actions">
-      <a href="tel:+442030843562" class="nav-phone"><i class="fas fa-phone"></i> 020 3084 3562</a>
+      <a href="tel:+447497763670" class="nav-phone"><i class="fas fa-phone"></i> +44 7497 763670</a>
       <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -352,136 +329,102 @@ tp('register', 'mtmU7h8SbjJcpj2M');
     <a href="/areas">Areas</a>
     <a href="/contact">Contact</a>
     <a href="/faq">FAQ</a>
-    <div class="mobile-nav-footer"><a href="tel:+442030843562" class="btn-primary btn-lg" style="width:100%;justify-content:center;"><i class="fas fa-phone"></i> Call Now</a></div>
+    <div class="mobile-nav-footer"><a href="tel:+447497763670" class="btn-primary btn-lg" style="width:100%;justify-content:center;"><i class="fas fa-phone"></i> Call Now</a></div>
   </div>
 
-  <section class="page-hero">
-    <div class="page-hero-content">
-      <div class="section-label"><i class="fas fa-file-invoice"></i> Free Quote</div>
-      <h1 class="section-title" style="color:var(--text);font-size:44px;">Get Your <em>Free</em> Moving Quote</h1>
-      <p style="font-size:16px;color:var(--text-secondary);margin-top:12px;">Takes 2 minutes. No obligation. Response within minutes.</p>
+  <section class="page-hero quote-hero">
+    <div class="container quote-hero-grid">
+      <div class="quote-hero-copy">
+        <div class="section-label"><i class="fas fa-file-invoice"></i> Free Quote</div>
+        <h1>Get Your <em>Free</em><br>Moving Quote</h1>
+        <p>Tell us about your move and we’ll come back to you with a clear, no-obligation quote within minutes.</p>
+        <div class="quote-hero-proof">
+          <div class="quote-proof-item"><i class="fas fa-shield-alt"></i><strong>Fully insured</strong><span>Peace of mind included</span></div>
+          <div class="quote-proof-item"><i class="fas fa-users"></i><strong>Professional movers</strong><span>Careful from start to finish</span></div>
+          <div class="quote-proof-item"><i class="fas fa-tag"></i><strong>No hidden charges</strong><span>Transparent pricing</span></div>
+        </div>
+      </div>
+      <div class="quote-hero-visual">
+        <img src="./img/Home_removeal.webp" alt="UK Removal &amp; Logistics team preparing a removal truck">
+        <div class="quote-hero-badge"><i class="fas fa-clock"></i> Response within minutes</div>
+      </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:56px;">
+  <section class="quote-page-main">
     <div class="container">
       <div class="quote-layout">
-        <div>
-          <!-- Step Bar -->
-          <div class="step-bar" id="stepBar">
-            <div style="text-align:center;flex-shrink:0;">
-              <div class="step-dot active" id="sd1">1</div>
-              <div class="step-label">Service</div>
+        <div class="quote-main-column">
+          <div class="quote-form-card">
+            <div class="quote-form-intro">
+              <div class="quote-form-intro-icon"><i class="fas fa-clipboard-list"></i></div>
+              <div><h2>Tell Us About Your Move</h2><p>Please fill in the details below and we’ll get back to you with your quote.</p></div>
             </div>
-            <div class="step-line" id="sl1"></div>
-            <div style="text-align:center;flex-shrink:0;">
-              <div class="step-dot" id="sd2">2</div>
-              <div class="step-label">Details</div>
+
+            <!-- All quote fields are visible on one page. Existing IDs and onclick hooks are preserved. -->
+            <div class="step-card single-page-section" id="step1">
+              <h2>1. What do you need to move?</h2>
+              <p>Select the service that best describes your move.</p>
+              <div class="service-opts" id="serviceOpts">
+                <div class="sopt selected" onclick="selectSvc(this,'Home Removal')"><i class="fas fa-home"></i><span>Home Removal</span></div>
+                <div class="sopt" onclick="selectSvc(this,'Office')"><i class="fas fa-building"></i><span>Office Relocation</span></div>
+                <div class="sopt" onclick="selectSvc(this,'Packing')"><i class="fas fa-box-open"></i><span>Packing Service</span></div>
+                <div class="sopt" onclick="selectSvc(this,'Storage')"><i class="fas fa-warehouse"></i><span>Storage</span></div>
+                <div class="sopt" onclick="selectSvc(this,'Piano')"><i class="fas fa-music"></i><span>Piano Removal</span></div>
+                <div class="sopt" onclick="selectSvc(this,'Student')"><i class="fas fa-graduation-cap"></i><span>Student Move</span></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Moving From</label><input type="text" name="Moving From" id="q_from" placeholder="e.g. London E1 or Ilford"></div>
+                <div class="form-group"><label>Moving To</label><input type="text" name="Moving To" id="q_to" placeholder="e.g. Manchester M1 or Leeds"></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Preferred Date</label><input type="date" name="Preferred Date" id="q_date"></div>
+                <div class="form-group"><label>Property Type</label><select name="Property Type" id="q_proptype"><option value="">Select type...</option><option>Studio / Bedsit</option><option>1 Bedroom Flat</option><option>2 Bedroom Flat</option><option>2 Bedroom House</option><option>3 Bedroom House</option><option>4+ Bedroom House</option><option>Office</option><option>Single Items</option></select></div>
+              </div>
             </div>
-            <div class="step-line" id="sl2"></div>
-            <div style="text-align:center;flex-shrink:0;">
-              <div class="step-dot" id="sd3">3</div>
-              <div class="step-label">Contact</div>
+
+            <div class="step-card single-page-section" id="step2">
+              <h2>2. Tell us about your move</h2>
+              <p>A few more details help us give an accurate quote.</p>
+              <div class="form-row">
+                <div class="form-group"><label>Need Packing Help?</label><select name="Packing Help" id="q_packing"><option>No  I'll pack myself</option><option>Yes  full packing</option><option>Yes  fragile items only</option></select></div>
+                <div class="form-group"><label>Access Details</label><input type="text" name="Access Details" id="q_access" placeholder="e.g. 3rd floor, no lift, parking nearby"></div>
+              </div>
+              <div class="form-group"><label>Full List of Items / Anything Else?</label><textarea name="Additional Notes" id="q_notes" placeholder="Please list large items, piano, fragile antiques, boxes, furniture, and anything else we should know..."></textarea></div>
+            </div>
+
+            <div class="step-card single-page-section" id="step3">
+              <h2>3. Where should we send your quote?</h2>
+              <p>We’ll get back to you within minutes during opening hours.</p>
+              <div class="quote-note"><i class="fas fa-comment-alt"></i><span>Our team will send your quote by email and phone, so please enter the correct contact details.</span></div>
+              <div class="form-row">
+                <div class="form-group"><label>First Name</label><input type="text" name="First Name" id="q_fname" placeholder="John" required></div>
+                <div class="form-group"><label>Last Name</label><input type="text" name="Last Name" id="q_lname" placeholder="Smith" required></div>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Email Address</label><input type="email" name="email" id="q_email" placeholder="john@example.com" required></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" name="Phone" id="q_phone" placeholder="07700 000000" required></div>
+              </div>
+              <div class="quote-submit-wrap"><button class="btn-next" onclick="submitQuote()"><i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote</button><div class="quote-security"><i class="fas fa-lock"></i><span>Your information is secure and will only be used to provide your quote.</span></div></div>
+            </div>
+
+
+            <!-- Legacy hooks retained for the existing success handler; hidden so the form remains one page. -->
+            <div class="quote-legacy-hooks" aria-hidden="true"><span id="sd1"></span><span id="sd2"></span><span id="sd3"></span><span id="sl1"></span><span id="sl2"></span></div>
+
+            <!-- Success ID preserved for the existing submit flow. -->
+            <div class="step-card success-card" id="stepSuccess" style="display:none;">
+              <div class="success-icon"><i class="fas fa-check"></i></div>
+              <h2>Quote Request Sent!</h2>
+              <p>Thank you! We’ve received your request and will be in touch shortly — usually within minutes.</p>
+              <div class="success-trust"><span><i class="fas fa-clock"></i> Response in minutes</span><span><i class="fas fa-shield-alt"></i> No obligation</span><span><i class="fas fa-pound-sign"></i> No hidden fees</span></div>
+              <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="tel:+447497763670" class="btn-primary"><i class="fas fa-phone"></i> Call +447497763670</a><a href="/" class="btn-dark">Back to Home</a></div>
             </div>
           </div>
 
-          <!-- Step 1 -->
-          <div class="step-card" id="step1">
-            <h2>What do you need to move?</h2>
-            <p>Select the service that best describes your move.</p>
-            <div class="service-opts" id="serviceOpts">
-              <div class="sopt selected" onclick="selectSvc(this,'Home Removal')"><i class="fas fa-home"></i><span>Home Removal</span></div>
-              <div class="sopt" onclick="selectSvc(this,'Office')"><i class="fas fa-building"></i><span>Office Relocation</span></div>
-              <div class="sopt" onclick="selectSvc(this,'Packing')"><i class="fas fa-box-open"></i><span>Packing Service</span></div>
-              <div class="sopt" onclick="selectSvc(this,'Storage')"><i class="fas fa-warehouse"></i><span>Storage</span></div>
-              <div class="sopt" onclick="selectSvc(this,'Piano')"><i class="fas fa-music"></i><span>Piano Removal</span></div>
-              <div class="sopt" onclick="selectSvc(this,'Student')"><i class="fas fa-graduation-cap"></i><span>Student Move</span></div>
-            </div>
-            <div class="form-group"><label>Moving From</label><input type="text" name="Moving From" id="q_from" placeholder="e.g. London E1 or Dagenham"></div>
-            <div class="form-group"><label>Moving To</label><input type="text" name="Moving To" id="q_to" placeholder="e.g. Manchester M1 or Leeds"></div>
-            <div class="form-group"><label>Preferred Date</label><input type="date" name="Preferred Date" id="q_date"></div>
-            <div class="step-buttons"><button class="btn-next" onclick="goStep(2)">Continue <i class="fas fa-arrow-right" style="margin-left:6px;font-size:12px;"></i></button></div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="step-card" id="step2" style="display:none;">
-            <h2>Tell us about your move</h2>
-            <p>A few more details help us give an accurate quote.</p>
-            <div class="form-group"><label>Property Type</label>
-              <select name="Property Type" id="q_proptype"><option value="">Select type...</option><option>Studio / Bedsit</option><option>1 Bedroom Flat</option><option>2 Bedroom Flat</option><option>2 Bedroom House</option><option>3 Bedroom House</option><option>4+ Bedroom House</option><option>Office</option><option>Single Items</option></select>
-            </div>
-            <div class="form-group"><label>Need Packing Help?</label>
-              <select name="Packing Help" id="q_packing"><option>No  I'll pack myself</option><option>Yes  full packing</option><option>Yes  fragile items only</option></select>
-            </div>
-            <div class="form-group"><label>Access Details</label><input type="text" name="Access Details" id="q_access" placeholder="e.g. 3rd floor, no lift, parking nearby"></div>
-            <div class="form-group"><label>Anything Else?</label><textarea name="Additional Notes" id="q_notes" placeholder="Large items, piano, fragile antiques..."></textarea></div>
-            <div class="step-buttons">
-              <button class="btn-back" onclick="goStep(1)"><i class="fas fa-arrow-left" style="margin-right:6px;font-size:12px;"></i> Back</button>
-              <button class="btn-next" onclick="goStep(3)">Continue <i class="fas fa-arrow-right" style="margin-left:6px;font-size:12px;"></i></button>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="step-card" id="step3" style="display:none;">
-            <h2>Where should we send your quote?</h2>
-            <p>We'll get back to you within minutes during opening hours.</p>
-            <div class="form-row">
-              <div class="form-group"><label>First Name</label><input type="text" name="First Name" id="q_fname" placeholder="John" required></div>
-              <div class="form-group"><label>Last Name</label><input type="text" name="Last Name" id="q_lname" placeholder="Smith" required></div>
-            </div>
-            <div class="form-group"><label>Email</label><input type="email" name="email" id="q_email" placeholder="john@example.com" required></div>
-            <div class="form-group"><label>Phone</label><input type="tel" name="Phone" id="q_phone" placeholder="07700 000000" required></div>
-            <div class="step-buttons">
-              <button class="btn-back" onclick="goStep(2)"><i class="fas fa-arrow-left" style="margin-right:6px;font-size:12px;"></i> Back</button>
-              <button class="btn-next" onclick="submitQuote()">Get My Free Quote <i class="fas fa-check" style="margin-left:6px;font-size:12px;"></i></button>
-            </div>
-          </div>
-
-          <!-- Success -->
-          <div class="step-card success-card" id="stepSuccess" style="display:none;">
-            <div class="success-icon"><i class="fas fa-check"></i></div>
-            <h2>Quote Request Sent!</h2>
-            <p>Thank you! We've received your request and will be in touch shortly  usually within minutes.</p>
-            <div class="success-trust">
-              <span><i class="fas fa-clock"></i> Response in minutes</span>
-              <span><i class="fas fa-shield-alt"></i> No obligation</span>
-              <span><i class="fas fa-pound-sign"></i> No hidden fees</span>
-            </div>
-            <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-              <a href="tel:+442030843562" class="btn-primary"><i class="fas fa-phone"></i> Call Now</a>
-              <a href="/" class="btn-dark">Back to Home</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="quote-sidebar reveal from-right">
-          <div class="side-card" style="background:var(--bg-surface);">
-            <h4>Why Choose UK Removal & Logistics?</h4>
-            <div class="side-check"><i class="fas fa-check-circle"></i> No hidden charges</div>
-            <div class="side-check"><i class="fas fa-check-circle"></i> Response within minutes</div>
-            <div class="side-check"><i class="fas fa-check-circle"></i> Fully insured moves</div>
-            <div class="side-check"><i class="fas fa-check-circle"></i> Same-day available</div>
-            <div class="side-check"><i class="fas fa-check-circle"></i> Dedicated move manager</div>
-            <div class="side-check"><i class="fas fa-check-circle"></i> 5★ rated by 500+</div>
-          </div>
-          <div class="side-card">
-            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;font-weight:700;letter-spacing:1px;margin-bottom:14px;">Prefer to Talk?</div>
-            <a href="tel:+442030843562" style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-              <div style="width:42px;height:42px;border-radius:11px;background:var(--accent-glow);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-phone" style="color:var(--accent);font-size:15px;"></i></div>
-              <div><div style="font-size:15px;font-weight:700;color:var(--text);">020 3084 3562</div><div style="font-size:12px;color:var(--text-muted);">24/7 Support</div></div>
-            </a>
-            <a href="https://wa.me/447754844481" target="_blank" style="display:flex;align-items:center;gap:12px;">
-              <div style="width:42px;height:42px;border-radius:11px;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fab fa-whatsapp" style="color:#25D366;font-size:20px;"></i></div>
-              <div><div style="font-size:15px;font-weight:700;color:var(--text);">WhatsApp Us</div><div style="font-size:12px;color:var(--text-muted);">+44 7754 844481</div></div>
-            </a>
-          </div>
-          <div class="side-card" style="background:var(--accent-glow2);border-color:var(--accent-border);">
-            <h4 style="color:var(--text);">Pricing Guide</h4>
-            <div class="side-price-row"><span class="label">Small move</span><span class="value">From £150</span></div>
-            <div class="side-price-row"><span class="label">Family home</span><span class="value">From £350</span></div>
-            <div class="side-price-row"><span class="label">Office relocation</span><span class="value">From £250</span></div>
-            <div class="side-price-row"><span class="label">Student move</span><span class="value">From £90</span></div>
+          <div class="quote-contact-strip">
+            <div class="quote-contact-item"><div class="quote-contact-icon"><i class="fas fa-phone"></i></div><div><strong>Call Us</strong><a href="tel:+447497763670">+44 7497 763670</a><span>24/7 support</span></div></div>
+            <div class="quote-contact-item"><div class="quote-contact-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp Us</strong><a href="https://wa.me/447497763670" target="_blank" rel="noopener">+44 7497 763670</a><span>Quick response</span></div></div>
           </div>
         </div>
       </div>
@@ -495,8 +438,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
           <div class="footer-brand"><img src="./img/footer_logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
           <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
           <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
-            <div class="footer-contact-item"><i class="fas fa-phone"></i> 020 3084 3562</div>
-            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7754 844481</div>
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> +44 7497 763670</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7497 763670</div>
             <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
             <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
           </div>
@@ -604,7 +547,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
           document.getElementById('stepSuccess').style.display = 'block';
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          alert('Something went wrong. Please call us on 020 3084 3562 or WhatsApp us directly.');
+          alert('Something went wrong. Please call us on +44 7497 763670 or WhatsApp us directly.');
           btn.textContent = 'Get My Free Quote ✓';
           btn.disabled = false;
         }
@@ -631,8 +574,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
   </div>
   <script>
     (function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('cookieConsent')&&b){b.classList.add('visible');}})();
-    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
-    function declineCookies(){localStorage.setItem('cookieConsent','declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function declineCookies(){localStorage.setItem('cookieConsent','declined');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
   </script>
 </body>
 </html>

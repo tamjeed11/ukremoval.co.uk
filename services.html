@@ -2,13 +2,37 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) - Google Ads -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <!-- Google tag (gtag.js): one tag with Google Ads and GA4 destinations -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2: deny measurement storage until the visitor chooses.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied'
+    });
+    // Restore a previously accepted choice before any config command runs.
+    (function () {
+      var savedConsent = null;
+      try { savedConsent = window.localStorage.getItem('cookieConsent'); } catch (e) {}
+      if (savedConsent === 'accepted') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+    })();
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
+  <script>
     gtag('js', new Date());
+    // One Google tag, two destinations; page_view is enabled for GA4 by default.
     gtag('config', 'AW-17326047444');
+    gtag('config', 'G-JKDJ8QQPQS', { 'send_page_view': true });
   </script>
   <link rel="icon" type="image/svg+xml" href="./img/logo%20footer.svg">
   <link rel="icon" type="image/webp" href="./img/footer_logo.webp">
@@ -50,7 +74,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
 </script>
   <!-- End TrustBox script -->
   <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"UK Removal & Logistics Ltd","url":"https://www.ukremoval.co.uk","telephone":"+442030843562","email":"sales@ukremoval.co.uk","address":{"@type":"PostalAddress","streetAddress":"Unit 1, 17-18 Regal House","addressLocality":"Ilford","postalCode":"IG2 7JY","addressCountry":"GB"},"openingHours":"Mo-Su 00:00-23:59","areaServed":"GB"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"UK Removal & Logistics Ltd","url":"https://www.ukremoval.co.uk","telephone":"+447497763670","email":"sales@ukremoval.co.uk","address":{"@type":"PostalAddress","streetAddress":"Unit 1, 17-18 Regal House","addressLocality":"Ilford","postalCode":"IG2 7JY","addressCountry":"GB"},"openingHours":"Mo-Su 00:00-23:59","areaServed":"GB"}</script>
   <!-- OG Tags -->
   <meta property="og:title" content="Our Services – UK Removal & Logistics Ltd">
   <meta property="og:description" content="Home removals, office relocations, packing, storage, piano removals & student moves. Fully insured, fixed prices, UK-wide coverage.">
@@ -232,7 +256,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       <a href="/faq">FAQ</a>
     </div>
     <div class="nav-actions">
-      <a href="tel:+442030843562" class="nav-phone"><i class="fas fa-phone"></i> 020 3084 3562</a>
+      <a href="tel:+447497763670" class="nav-phone"><i class="fas fa-phone"></i> +44 7497 763670</a>
       <a href="/quote" class="btn-primary btn-shake">Get Free Quote</a>
       <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -261,7 +285,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
         full house removals, packing services to long-term storage  we do it all.</p>
       <div style="display:flex;gap:12px;justify-content:center;margin-top:32px;">
         <a href="/quote" class="btn-primary btn-lg btn-shake"><i class="fas fa-file-invoice"></i> Get Free Quote</a>
-        <a href="tel:+442030843562" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> 020 3084 3562</a>
+        <a href="tel:+447497763670" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> +44 7497 763670</a>
       </div>
     </div>
   </section>
@@ -456,7 +480,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
         <div class="cta-buttons">
           <a href="/quote" class="btn-primary btn-lg btn-shake"><i class="fas fa-file-invoice"></i> Get Free
             Quote</a>
-          <a href="tel:+442030843562" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> 020 3084 3562</a>
+          <a href="tel:+447497763670" class="btn-ghost btn-lg"><i class="fas fa-phone"></i> +44 7497 763670</a>
         </div>
       </div>
     </div>
@@ -470,8 +494,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
           <div class="footer-brand"><img src="./img/footer_logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
           <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
           <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
-            <div class="footer-contact-item"><i class="fas fa-phone"></i> 020 3084 3562</div>
-            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7754 844481</div>
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> +44 7497 763670</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7497 763670</div>
             <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
             <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
           </div>
@@ -516,8 +540,8 @@ tp('register', 'mtmU7h8SbjJcpj2M');
   </div>
   <script>
     (function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('cookieConsent')&&b){b.classList.add('visible');}})();
-    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
-    function declineCookies(){localStorage.setItem('cookieConsent','declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function declineCookies(){localStorage.setItem('cookieConsent','declined');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
   </script>
 </body>
 

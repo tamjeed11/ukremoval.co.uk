@@ -2,6 +2,19 @@
    RAPIMOVE REMOVALS LTD  PREMIUM SHARED JS v4.0
    ═══════════════════════════════════════════════════════════════ */
 
+// Update the single Google tag Consent Mode state without sending form data or other PII.
+window.updateGoogleConsent = window.updateGoogleConsent || function (choice) {
+  const status = choice === 'accepted' ? 'granted' : 'denied';
+  if (typeof window.gtag === 'function') {
+    window.gtag('consent', 'update', {
+      ad_storage: status,
+      ad_user_data: status,
+      ad_personalization: status,
+      analytics_storage: status
+    });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   
   // ── NAVBAR SCROLL ──
@@ -235,13 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
     bar.className = 'mobile-cta-bar';
     bar.setAttribute('aria-label', 'Quick contact actions');
     bar.innerHTML = `
-      <a href="tel:+442030843562" class="mcta-call" aria-label="Call us">
+      <a href="tel:+447497763670" class="mcta-call" aria-label="Call us">
         <i class="fas fa-phone" aria-hidden="true"></i> Call
       </a>
       <a href="/quote" class="mcta-quote" aria-label="Get free quote">
         <i class="fas fa-file-invoice" aria-hidden="true"></i> Free Quote
       </a>
-      <a href="https://wa.me/447754844481" target="_blank" rel="noopener" class="mcta-wa" aria-label="WhatsApp">
+      <a href="https://wa.me/447497763670" target="_blank" rel="noopener" class="mcta-wa" aria-label="WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
       </a>`;
     document.body.appendChild(bar);
@@ -257,37 +270,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (banner) banner.classList.add('visible');
   })();
 
-  // ── GA4 CONDITIONAL LOADING ──
-  // Replace 'G-XXXXXXXXXX' with your actual GA4 Measurement ID
-  function loadGA4() {
-    if (document.getElementById('ga4-script')) return;
-    var s = document.createElement('script');
-    s.id = 'ga4-script';
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-  }
-
-  // Load GA4 if user already consented
-  if (localStorage.getItem('cookieConsent') === 'accepted') {
-    loadGA4();
-  }
-
   // Expose globally so onclick handlers work on all pages
   window.acceptCookies = function () {
     localStorage.setItem('cookieConsent', 'accepted');
     const b = document.getElementById('cookie-banner');
     if (b) b.classList.remove('visible');
-    loadGA4();
+    window.updateGoogleConsent('accepted');
   };
   window.declineCookies = function () {
     localStorage.setItem('cookieConsent', 'declined');
     const b = document.getElementById('cookie-banner');
+    window.updateGoogleConsent('declined');
     if (b) b.classList.remove('visible');
   };
 });
