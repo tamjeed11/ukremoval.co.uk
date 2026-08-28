@@ -175,7 +175,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
 
     .quote-page-main { padding: clamp(32px, 5vw, 66px) 0 88px; background: #f7fbf8; }
     .quote-layout { display: block; }
-    .quote-main-column { max-width: 780px; margin: 0 auto; }
+    .quote-main-column { max-width: 920px; margin: 0 auto; }
     .quote-form-card {
       padding: clamp(24px, 4vw, 46px);
       background: #ffffff;
@@ -229,7 +229,7 @@ tp('register', 'mtmU7h8SbjJcpj2M');
     .quote-submit-wrap .btn-next:hover { background: #087d41; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(14, 126, 69, 0.2); }
     .quote-security { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 13px; color: #697a70; font-size: 12px; text-align: center; }
     .quote-security i { color: #0e9a53; }
-    .quote-contact-strip { max-width: 780px; margin: 20px auto 0; padding: 26px; background: #eef8f1; border: 1px solid rgba(14, 126, 69, 0.11); border-radius: 20px; }
+    .quote-contact-strip { max-width: 920px; margin: 20px auto 0; padding: 26px; background: #eef8f1; border: 1px solid rgba(14, 126, 69, 0.11); border-radius: 20px; }
     .quote-contact-strip h3 { margin: 0 0 4px; text-align: center; color: #14231a; font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; }
     .quote-contact-strip .quote-contact-sub { margin: 0 0 20px; text-align: center; color: #64736a; font-size: 13px; }
     .quote-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -457,9 +457,11 @@ tp('register', 'mtmU7h8SbjJcpj2M');
   </footer>
   <script src="shared.js" defer></script>
   <script>
-    // Simple client-side only submit — no backend / API call.
-    // If you later want quotes actually emailed to you, you'll need to add
-    // a backend endpoint (or a service like Formspree / EmailJS) back into this function.
+    function getRadioValue(name) {
+      const checked = document.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : '';
+    }
+
     function submitQuote() {
       const fname = document.getElementById('q_fname').value.trim();
       const email = document.getElementById('q_email').value.trim();
@@ -474,12 +476,44 @@ tp('register', 'mtmU7h8SbjJcpj2M');
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // No API/backend call here — just show the success screen.
-      setTimeout(() => {
-        document.getElementById('quoteFields').style.display = 'none';
-        document.getElementById('stepSuccess').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 400);
+      const API_URL = '/api/send-email';
+
+      const payload = JSON.stringify({
+        formType: 'quote',
+        propertySize: document.getElementById('q_propsize').value,
+        pickupPostcode: document.getElementById('q_pickup').value,
+        dropoffPostcode: document.getElementById('q_dropoff').value,
+        items: document.getElementById('q_items').value,
+        packingService: getRadioValue('q_packing'),
+        furnitureDisassembly: getRadioValue('q_furniture'),
+        groundFloor: getRadioValue('q_groundfloor'),
+        fullName: fname,
+        email: email,
+        phone: phone
+      });
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('quoteFields').style.display = 'none';
+          document.getElementById('stepSuccess').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          alert('Something went wrong. Please call us on +44 7497 763670 or WhatsApp us directly.');
+          btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote';
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        alert('Something went wrong. Please call us on +44 7497 763670 or WhatsApp us directly.');
+        btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote';
+        btn.disabled = false;
+      });
     }
   </script>
   <!-- Cookie Consent Banner -->
