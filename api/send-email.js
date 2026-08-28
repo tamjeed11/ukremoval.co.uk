@@ -1,4 +1,4 @@
-﻿const { Resend } = require('resend');
+const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,7 +23,7 @@ module.exports = async function handler(req, res) {
     let subject, htmlBody;
 
     if (formType === 'quote') {
-      subject = `🚚 New Quote Request – ${data.service || ''} – ${data.firstName || ''} ${data.lastName || ''}`;
+      subject = `🚚 New Quote Request – ${data.propertySize || ''} – ${data.fullName || ''}`;
       htmlBody = buildQuoteEmail(data);
     } else {
       subject = `📩 New Contact Message – ${data.firstName || ''} ${data.lastName || ''}`;
@@ -60,18 +60,17 @@ function buildQuoteEmail(d) {
     <div style="padding:32px;background:#ffffff;">
       <h2 style="color:#111;font-size:18px;margin:0 0 20px;border-bottom:2px solid #00D4AA;padding-bottom:12px;">📋 Quote Details</h2>
       <table style="width:100%;border-collapse:collapse;">
-        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;width:40%;font-size:13px;">Service</td><td style="padding:10px 14px;color:#111;font-size:14px;font-weight:600;">${d.service || ' '}</td></tr>
-        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Moving From</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.movingFrom || ' '}</td></tr>
-        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Moving To</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.movingTo || ' '}</td></tr>
-        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Preferred Date</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.preferredDate || ' '}</td></tr>
-        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Property Type</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.propertyType || ' '}</td></tr>
-        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Packing Help</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.packingHelp || ' '}</td></tr>
-        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Access Details</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.accessDetails || ' '}</td></tr>
-        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Additional Notes</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.notes || ' '}</td></tr>
+        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;width:40%;font-size:13px;">Property Size</td><td style="padding:10px 14px;color:#111;font-size:14px;font-weight:600;">${d.propertySize || ' '}</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Pickup Postcode</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.pickupPostcode || ' '}</td></tr>
+        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Drop-off Postcode</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.dropoffPostcode || ' '}</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Full List of Items</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.items || ' '}</td></tr>
+        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Packing Service Needed</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.packingService || ' '}</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Furniture Disassembly/Reassembly</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.furnitureDisassembly || ' '}</td></tr>
+        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Ground to Ground Floor</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.groundFloor || ' '}</td></tr>
       </table>
       <h2 style="color:#111;font-size:18px;margin:28px 0 20px;border-bottom:2px solid #00D4AA;padding-bottom:12px;">👤 Customer Details</h2>
       <table style="width:100%;border-collapse:collapse;">
-        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;width:40%;font-size:13px;">Name</td><td style="padding:10px 14px;color:#111;font-size:14px;font-weight:600;">${d.firstName || ''} ${d.lastName || ''}</td></tr>
+        <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;width:40%;font-size:13px;">Name</td><td style="padding:10px 14px;color:#111;font-size:14px;font-weight:600;">${d.fullName || ' '}</td></tr>
         <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Email</td><td style="padding:10px 14px;font-size:14px;"><a href="mailto:${d.email}" style="color:#00D4AA;">${d.email || ' '}</a></td></tr>
         <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Phone</td><td style="padding:10px 14px;font-size:14px;"><a href="tel:${d.phone}" style="color:#00D4AA;">${d.phone || ' '}</a></td></tr>
       </table>
