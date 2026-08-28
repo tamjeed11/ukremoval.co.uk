@@ -1,37 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js): one tag with Google Ads and GA4 destinations -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5NGZS20ZKH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    // Consent Mode v2: deny measurement storage until the visitor chooses.
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
-    });
-    // Restore a previously accepted choice before any config command runs.
-    (function () {
-      var savedConsent = null;
-      try { savedConsent = window.localStorage.getItem('cookieConsent'); } catch (e) {}
-      if (savedConsent === 'accepted') {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
-    })();
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17326047444"></script>
-  <script>
     gtag('js', new Date());
-    // One Google tag, two destinations; page_view is enabled for GA4 by default.
-    gtag('config', 'AW-17326047444');
-    gtag('config', 'G-JKDJ8QQPQS', { 'send_page_view': true });
+
+    gtag('config', 'G-5NGZS20ZKH');
   </script>
   <link rel="icon" type="image/svg+xml" href="./img/logo%20footer.svg">
   <link rel="preload" href="./img/main_logo.webp" as="image" type="image/webp" fetchpriority="high">
