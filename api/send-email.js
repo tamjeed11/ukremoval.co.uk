@@ -61,6 +61,7 @@ function buildQuoteEmail(d) {
       <h2 style="color:#111;font-size:18px;margin:0 0 20px;border-bottom:2px solid #00D4AA;padding-bottom:12px;">📋 Quote Details</h2>
       <table style="width:100%;border-collapse:collapse;">
         <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;width:40%;font-size:13px;">Property Size</td><td style="padding:10px 14px;color:#111;font-size:14px;font-weight:600;">${d.propertySize || ' '}</td></tr>
+        <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Moving Date</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.movingDate || ' '}</td></tr>
         <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Pickup Postcode</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.pickupPostcode || ' '}</td></tr>
         <tr style="background:#f0fdf9;"><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Drop-off Postcode</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.dropoffPostcode || ' '}</td></tr>
         <tr><td style="padding:10px 14px;font-weight:700;color:#555;font-size:13px;">Full List of Items</td><td style="padding:10px 14px;color:#111;font-size:14px;">${d.items || ' '}</td></tr>
