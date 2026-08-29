@@ -345,33 +345,38 @@ tp('register', 'mtmU7h8SbjJcpj2M');
                 </select>
               </div>
 
+              <div class="form-group">
+                <label>2. Moving Date</label>
+                <input type="date" name="Moving Date" id="q_movingdate">
+              </div>
+
               <div class="form-row">
-                <div class="form-group"><label>2. Pickup Postcode</label><input type="text" name="Pickup Postcode" id="q_pickup" placeholder="Enter pickup postcode"></div>
-                <div class="form-group"><label>3. Drop-off Postcode</label><input type="text" name="Drop-off Postcode" id="q_dropoff" placeholder="Enter drop-off postcode"></div>
+                <div class="form-group"><label>3. Pickup Postcode</label><input type="text" name="Pickup Postcode" id="q_pickup" placeholder="Enter pickup postcode"></div>
+                <div class="form-group"><label>4. Drop-off Postcode</label><input type="text" name="Drop-off Postcode" id="q_dropoff" placeholder="Enter drop-off postcode"></div>
               </div>
 
               <div class="form-group">
-                <label>4. Full List of Items</label>
+                <label>5. Full List of Items</label>
                 <textarea name="Full List of Items" id="q_items" placeholder="Please list all the items you are moving, e.g. boxes, sofa, fridge, bed, table, etc."></textarea>
               </div>
 
               <div class="form-row-3">
                 <div class="form-group">
-                  <label>5. Do you need packing service?</label>
+                  <label>6. Do you need packing service?</label>
                   <div class="radio-group">
                     <label class="radio-option"><input type="radio" name="q_packing" value="Yes"> Yes</label>
                     <label class="radio-option"><input type="radio" name="q_packing" value="No"> No</label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>6. Do you need furniture disassembly, reassembly?</label>
+                  <label>7. Do you need furniture disassembly, reassembly?</label>
                   <div class="radio-group">
                     <label class="radio-option"><input type="radio" name="q_furniture" value="Yes"> Yes</label>
                     <label class="radio-option"><input type="radio" name="q_furniture" value="No"> No</label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>7. Is your move from ground to ground floor?</label>
+                  <label>8. Is your move from ground to ground floor?</label>
                   <div class="radio-group">
                     <label class="radio-option"><input type="radio" name="q_groundfloor" value="Yes"> Yes</label>
                     <label class="radio-option"><input type="radio" name="q_groundfloor" value="No"> No</label>
@@ -381,4 +386,154 @@ tp('register', 'mtmU7h8SbjJcpj2M');
 
               <div class="quote-note"><i class="fas fa-comment-alt"></i><span>Our team will send the quote by text and email address, so please enter the correct contact details</span></div>
 
-              <
+              <div class="form-row">
+                <div class="form-group"><label>9. Full Name</label><input type="text" name="Full Name" id="q_fname" placeholder="Enter your full name" required></div>
+                <div class="form-group"><label>10. Phone Number</label><input type="tel" name="Phone" id="q_phone" placeholder="Enter your phone number" required></div>
+              </div>
+              <div class="form-group"><label>11. Email Address</label><input type="email" name="email" id="q_email" placeholder="Enter your email address" required></div>
+
+              <div class="quote-submit-wrap"><button class="btn-next" onclick="submitQuote()"><i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote</button><div class="quote-security"><i class="fas fa-lock"></i><span>Your information is secure and will only be used to provide your quote.</span></div></div>
+            </div>
+
+            <!-- Success ID preserved for the existing submit flow. -->
+            <div class="step-card success-card" id="stepSuccess" style="display:none;">
+              <div class="success-icon"><i class="fas fa-check"></i></div>
+              <h2>Quote Request Sent!</h2>
+              <p>Thank you! We’ve received your request and will be in touch shortly — usually within minutes.</p>
+              <div class="success-trust"><span><i class="fas fa-clock"></i> Response in minutes</span><span><i class="fas fa-shield-alt"></i> No obligation</span><span><i class="fas fa-pound-sign"></i> No hidden fees</span></div>
+              <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="tel:+447497763670" class="btn-primary"><i class="fas fa-phone"></i> Call +447497763670</a><a href="/" class="btn-dark">Back to Home</a></div>
+            </div>
+          </div>
+
+          <div class="quote-contact-strip">
+            <h3>Prefer to talk to us?</h3>
+            <p class="quote-contact-sub">We're here to help!</p>
+            <div class="quote-contact-grid">
+              <div class="quote-contact-item"><div class="quote-contact-icon"><i class="fas fa-phone"></i></div><div><strong>Call Us</strong><a href="tel:02030843562">020 3084 3562</a><span>24/7 support</span></div></div>
+              <div class="quote-contact-item"><div class="quote-contact-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp Us</strong><a href="https://wa.me/447497763670" target="_blank" rel="noopener">0749 776 3670</a><span>Quick response</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><img src="./img/footer_logo.webp" alt="UK Removal &amp; Logistics Ltd"></div>
+          <p class="footer-desc">Professional removal services across the UK. Fully insured, transparent pricing, same-day service available.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+            <div class="footer-contact-item"><i class="fas fa-phone"></i> +44 7497 763670</div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i> +44 7497 763670</div>
+            <div class="footer-contact-item"><i class="fas fa-envelope"></i> sales@ukremoval.co.uk</div>
+            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Unit 1, 17-18 Regal House, Royal Crescent, Ilford, IG2 7JY</div>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/ukremoval/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61578389480824" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/uk_removal" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/ukremoval/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="/home-removals">Home Removals</a>
+          <a href="/office-removals">Office Relocations</a>
+          <a href="/storage-solutions">Storage Solutions</a>
+          <a href="/packing-services">Packing Services</a>
+          <a href="/piano-removals">Piano Removals</a>
+          <a href="/student-moves">Student Moves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about">About Us</a>
+          <a href="/testimonials">Reviews</a>
+          <a href="/areas">Areas Covered</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+          <a href="/quote">Get Quote</a>
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">Open 24/7 &nbsp;|&nbsp; Company No: 15954477<br>© 2026 UK Removal & Logistics Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+  <script src="shared.js" defer></script>
+  <script>
+    function getRadioValue(name) {
+      const checked = document.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : '';
+    }
+
+    function submitQuote() {
+      const fname = document.getElementById('q_fname').value.trim();
+      const email = document.getElementById('q_email').value.trim();
+      const phone = document.getElementById('q_phone').value.trim();
+
+      if (!fname || !email || !phone) {
+        alert('Please fill in your full name, email and phone number.');
+        return;
+      }
+
+      const btn = document.querySelector('.quote-submit-wrap .btn-next');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const API_URL = '/api/send-email';
+
+      const payload = JSON.stringify({
+        formType: 'quote',
+        propertySize: document.getElementById('q_propsize').value,
+        movingDate: document.getElementById('q_movingdate').value,
+        pickupPostcode: document.getElementById('q_pickup').value,
+        dropoffPostcode: document.getElementById('q_dropoff').value,
+        items: document.getElementById('q_items').value,
+        packingService: getRadioValue('q_packing'),
+        furnitureDisassembly: getRadioValue('q_furniture'),
+        groundFloor: getRadioValue('q_groundfloor'),
+        fullName: fname,
+        email: email,
+        phone: phone
+      });
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('quoteFields').style.display = 'none';
+          document.getElementById('stepSuccess').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          alert('Something went wrong. Please call us on +44 7497 763670 or WhatsApp us directly.');
+          btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote';
+          btn.disabled = false;
+        }
+      })
+      .catch(() => {
+        alert('Something went wrong. Please call us on +44 7497 763670 or WhatsApp us directly.');
+        btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right:8px;font-size:13px;"></i>Get My Free Quote';
+        btn.disabled = false;
+      });
+    }
+  </script>
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner">
+    <p>🍪 We use cookies to improve your experience and analyse site traffic. <a href="/privacy">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button class="cookie-btn-accept" onclick="acceptCookies()">Accept</button>
+      <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+  <script>
+    (function(){var b=document.getElementById('cookie-banner');if(!localStorage.getItem('cookieConsent')&&b){b.classList.add('visible');}})();
+    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('accepted');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+    function declineCookies(){localStorage.setItem('cookieConsent','declined');if(typeof window.updateGoogleConsent==='function')window.updateGoogleConsent('declined');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');}
+  </script>
+</body>
+</html>
